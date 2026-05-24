@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>جاك.ما — لوحة الإدارة</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #0f1117; color: #e0e0e0; min-height: 100vh; }
+
+  /* Login */
+  #loginScreen {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh; flex-direction: column; gap: 16px;
+  }
+  #loginScreen h1 { font-size: 28px; color: #c8a86b; }
+  #loginScreen p { color: #888; font-size: 14px; }
+  #passInput {
+    padding: 12px 18px; border-radius: 10px; border: 2px solid #333;
+    background: #1a1d27; color: #e0e0e0; font-size: 16px; width: 280px;
+    text-align: center; outline: none;
+  }
+  #passInput:focus { border-color: #c8a86b; }
+  #loginBtn {
+    padding: 12px 32px; background: #c8a86b; color: #000; border: none;
+    border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer;
+  }
+  #loginBtn:hover { background: #b8986b; }
+  #loginErr { color: #ff5555; font-size: 14px; display: none; }
+
+  /* Main */
+  #mainScreen { display: none; padding: 20px; max-width: 1200px; margin: 0 auto; }
+
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    background: #1a1d27; padding: 16px 24px; border-radius: 14px;
+    margin-bottom: 20px; border: 1px solid #2a2d3a;
+  }
+  header h1 { font-size: 22px; color: #c8a86b; }
+  header span { font-size: 13px; color: #888; }
+
+  .stats-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    margin-bottom: 20px;
+  }
+  .stat-box {
+    background: #1a1d27; border: 1px solid #2a2d3a; border-radius: 12px;
+    padding: 16px; text-align: center;
+  }
+  .stat-box .num { font-size: 28px; font-weight: 700; color: #c8a86b; }
+  .stat-box .lbl { font-size: 12px; color: #888; margin-top: 4px; }
+
+  .tabs {
+    display: flex; gap: 10px; margin-bottom: 16px;
+  }
+  .tab-btn {
+    padding: 8px 20px; border-radius: 20px; border: 2px solid #2a2d3a;
+    background: #1a1d27; color: #aaa; cursor: pointer; font-size: 14px;
+    transition: all .2s;
+  }
+  .tab-btn.active { border-color: #c8a86b; color: #c8a86b; background: #2a2217; }
+
+  .search-bar {
+    display: flex; gap: 10px; margin-bottom: 16px;
+  }
+  .search-bar input {
+    flex: 1; padding: 10px 16px; border-radius: 10px; border: 2px solid #2a2d3a;
+    background: #1a1d27; color: #e0e0e0; font-size: 14px; outline: none;
+  }
+  .search-bar input:focus { border-color: #c8a86b; }
+  .search-bar select {
+    padding: 10px 14px; border-radius: 10px; border: 2px solid #2a2d3a;
+    background: #1a1d27; color: #e0e0e0; font-size: 14px; outline: none; cursor: pointer;
+  }
+
+  .workers-table { width: 100%; border-collapse: collapse; }
+  .workers-table th {
+    background: #1a1d27; padding: 12px 14px; text-align: right;
+    font-size: 12px; color: #888; font-weight: 600; border-bottom: 1px solid #2a2d3a;
+    position: sticky; top: 0;
+  }
+  .workers-table td {
+    padding: 12px 14px; border-bottom: 1px solid #1e2130; vertical-align: top;
+    font-size: 13px;
+  }
+  .workers-table tr:hover td { background: #1a1d27; }
+
+  .badge {
+    display: inline-block; padding: 3px 10px; border-radius: 20px;
+    font-size: 11px; font-weight: 700;
+  }
+  .badge-pending { background: #4a3a0a; color: #f0b429; }
+  .badge-approved { background: #0a3a1a; color: #3fcf7e; }
+  .badge-source { background: #1a2a4a; color: #7eb8f0; }
+
+  .action-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+  .btn-approve {
+    padding: 5px 14px; background: #1a4a2a; color: #3fcf7e; border: 1px solid #2a6a3a;
+    border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600;
+  }
+  .btn-approve:hover { background: #2a5a3a; }
+  .btn-delete {
+    padding: 5px 14px; background: #4a1a1a; color: #ff5555; border: 1px solid #6a2a2a;
+    border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600;
+  }
+  .btn-delete:hover { background: #5a2a2a; }
+  .btn-wa {
+    padding: 5px 14px; background: #1a3a1a; color: #25d366; border: 1px solid #1f5c28;
+    border-radius: 8px; cursor: pointer; font-size: 12px; text-decoration: none; display: inline-block;
+  }
+
+  .worker-name { font-weight: 600; color: #e0e0e0; margin-bottom: 2px; }
+  .worker-meta { color: #888; font-size: 11px; }
+
+  .empty-state {
+    text-align: center; padding: 60px 20px; color: #555;
+  }
+  .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
+
+  #toastMsg {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: #1a1d27; border: 1px solid #c8a86b; color: #c8a86b;
+    padding: 12px 24px; border-radius: 10px; font-size: 14px; font-weight: 600;
+    display: none; z-index: 9999; animation: slideUp .3s ease;
+  }
+  @keyframes slideUp { from { opacity:0; transform: translateX(-50%) translateY(10px); } to { opacity:1; transform: translateX(-50%) translateY(0); } }
+
+  .table-wrap { overflow-x: auto; border-radius: 14px; border: 1px solid #2a2d3a; }
+
+  .refresh-btn {
+    padding: 8px 18px; background: #1a2d4a; color: #7eb8f0; border: 1px solid #2a4a6a;
+    border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600;
+  }
+  .refresh-btn:hover { background: #2a3d5a; }
+
+  .loading {
+    text-align: center; padding: 40px; color: #555; font-size: 15px;
+  }
+
+  @media (max-width: 600px) {
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .workers-table th:nth-child(3),
+    .workers-table td:nth-child(3) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginScreen">
+  <h1>🔐 لوحة إدارة جاك.ما</h1>
+  <p>أدخل كلمة المرور للدخول</p>
+  <input id="passInput" type="password" placeholder="كلمة المرور..." onkeydown="if(event.key==='Enter')doLogin()">
+  <button id="loginBtn" onclick="doLogin()">دخول</button>
+  <div id="loginErr">❌ كلمة المرور غلط</div>
+</div>
+
+<!-- MAIN -->
+<div id="mainScreen">
+  <header>
+    <h1>🇲🇦 لوحة إدارة جاك.ما</h1>
+    <div style="display:flex;gap:10px;align-items:center">
+      <button class="refresh-btn" onclick="loadAll()">🔄 تحديث</button>
+      <span id="lastUpdate"></span>
+    </div>
+  </header>
+
+  <div class="stats-row" id="statsRow">
+    <div class="stat-box"><div class="num" id="sTotal">—</div><div class="lbl">إجمالي العمال</div></div>
+    <div class="stat-box"><div class="num" id="sPending">—</div><div class="lbl">بانتظار الموافقة</div></div>
+    <div class="stat-box"><div class="num" id="sApproved">—</div><div class="lbl">معتمدون</div></div>
+    <div class="stat-box"><div class="num" id="sToday">—</div><div class="lbl">مسجلين اليوم</div></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="setTab('pending')">⏳ بانتظار الموافقة</button>
+    <button class="tab-btn" onclick="setTab('approved')">✅ معتمدون</button>
+    <button class="tab-btn" onclick="setTab('all')">📋 الكل</button>
+  </div>
+
+  <div class="search-bar">
+    <input id="searchInput" type="text" placeholder="ابحث عن اسم، مدينة، فئة..." oninput="filterWorkers()">
+    <select id="catFilter" onchange="filterWorkers()">
+      <option value="">كل الفئات</option>
+      <option>طريسيان</option>
+      <option>بلومبي</option>
+      <option>صباغة</option>
+      <option>نجارة</option>
+      <option>بناء</option>
+      <option>نقاوة</option>
+      <option>حدادة</option>
+      <option>ديكور</option>
+      <option>نقل</option>
+      <option>كلامبيستري</option>
+      <option>خياطة</option>
+      <option>حراسة</option>
+    </select>
+  </div>
+
+  <div class="table-wrap">
+    <table class="workers-table">
+      <thead>
+        <tr>
+          <th>العامل</th>
+          <th>الفئة / المدينة</th>
+          <th>الهاتف</th>
+          <th>الحالة</th>
+          <th>تاريخ التسجيل</th>
+          <th>إجراءات</th>
+        </tr>
+      </thead>
+      <tbody id="workersBody">
+        <tr><td colspan="6" class="loading">جارٍ التحميل...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div id="toastMsg"></div>
+
+<script>
+let adminPass = '';
+let allWorkers = [];
+let currentTab = 'pending';
+
+function doLogin() {
+  const pass = document.getElementById('passInput').value.trim();
+  if (!pass) return;
+  adminPass = pass;
+  loadAll();
+}
+
+async function loadAll() {
+  try {
+    const res = await fetch('/api/admin/workers', {
+      headers: { 'X-Admin-Password': adminPass }
+    });
+    if (res.status === 401) {
+      document.getElementById('loginErr').style.display = 'block';
+      adminPass = '';
+      return;
+    }
+    const data = await res.json();
+    document.getElementById('loginErr').style.display = 'none';
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('mainScreen').style.display = 'block';
+
+    allWorkers = data;
+    updateStats();
+    renderWorkers();
+    document.getElementById('lastUpdate').textContent = 'آخر تحديث: ' + new Date().toLocaleTimeString('ar');
+  } catch (e) {
+    showToast('❌ خطأ في الاتصال بالسيرفر');
+  }
+}
+
+function updateStats() {
+  const pending = allWorkers.filter(w => w.approved === false);
+  const approved = allWorkers.filter(w => w.approved !== false);
+  const today = new Date(); today.setHours(0,0,0,0);
+  const todayCount = allWorkers.filter(w => {
+    const d = new Date(w.createdAt || w.date || 0);
+    return d >= today;
+  }).length;
+  document.getElementById('sTotal').textContent = allWorkers.length.toLocaleString('ar');
+  document.getElementById('sPending').textContent = pending.length.toLocaleString('ar');
+  document.getElementById('sApproved').textContent = approved.length.toLocaleString('ar');
+  document.getElementById('sToday').textContent = todayCount.toLocaleString('ar');
+}
+
+function setTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach((b, i) => {
+    b.classList.toggle('active', ['pending','approved','all'][i] === tab);
+  });
+  renderWorkers();
+}
+
+function filterWorkers() { renderWorkers(); }
+
+function renderWorkers() {
+  const search = document.getElementById('searchInput').value.trim().toLowerCase();
+  const cat = document.getElementById('catFilter').value;
+
+  let workers = allWorkers;
+
+  if (currentTab === 'pending') workers = workers.filter(w => w.approved === false);
+  else if (currentTab === 'approved') workers = workers.filter(w => w.approved !== false);
+
+  if (cat) workers = workers.filter(w => w.category === cat);
+  if (search) workers = workers.filter(w =>
+    (w.name||'').toLowerCase().includes(search) ||
+    (w.city||'').toLowerCase().includes(search) ||
+    (w.category||'').toLowerCase().includes(search) ||
+    (w.phone||'').includes(search)
+  );
+
+  const tbody = document.getElementById('workersBody');
+
+  if (workers.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="6"><div class="empty-state"><div class="icon">🔍</div><div>لا توجد نتائج</div></div></td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = workers.map(w => {
+    const id = w._id || w.id;
+    const isPending = w.approved === false;
+    const date = w.createdAt ? new Date(w.createdAt).toLocaleDateString('ar-MA') : (w.date || '—');
+    const phone = (w.phone || '').replace(/\s/g,'');
+    const waLink = phone ? `https://wa.me/212${phone.replace(/^0/,'')}` : '#';
+    return `
+      <tr id="row-${id}">
+        <td>
+          <div class="worker-name">${esc(w.name || '—')}</div>
+          <div class="worker-meta">${esc(w.description || '').substring(0,60)}${w.description && w.description.length>60?'...':''}</div>
+        </td>
+        <td>
+          <div>${esc(w.category || '—')}</div>
+          <div class="worker-meta">${esc(w.city || '—')} ${w.zone ? '· '+esc(w.zone) : ''}</div>
+        </td>
+        <td>
+          <div>${esc(w.phone || '—')}</div>
+          ${phone ? `<a class="btn-wa" href="${waLink}" target="_blank">💬 واتساب</a>` : ''}
+        </td>
+        <td>
+          <span class="badge ${isPending ? 'badge-pending' : 'badge-approved'}">
+            ${isPending ? '⏳ بانتظار' : '✅ معتمد'}
+          </span>
+          ${w.price ? `<div class="worker-meta" style="margin-top:4px">💰 ${esc(w.price)} درهم/يوم</div>` : ''}
+        </td>
+        <td><div class="worker-meta">${date}</div></td>
+        <td>
+          <div class="action-btns">
+            ${isPending ? `<button class="btn-approve" onclick="approveWorker('${id}')">✅ قبول</button>` : ''}
+            <button class="btn-delete" onclick="deleteWorker('${id}', '${esc(w.name||'')}')">🗑️ حذف</button>
+          </div>
+        </td>
+      </tr>`;
+  }).join('');
+}
+
+async function approveWorker(id) {
+  try {
+    const res = await fetch(`/api/admin/workers/${id}/approve`, {
+      method: 'POST',
+      headers: { 'X-Admin-Password': adminPass }
+    });
+    if (!res.ok) throw new Error();
+    const w = allWorkers.find(w => (w._id||w.id) == id);
+    if (w) w.approved = true;
+    updateStats();
+    renderWorkers();
+    showToast('✅ تم قبول العامل');
+  } catch {
+    showToast('❌ فشل في قبول العامل');
+  }
+}
+
+async function deleteWorker(id, name) {
+  if (!confirm(`هل أنت متأكد من حذف "${name}"?`)) return;
+  try {
+    const res = await fetch(`/api/admin/workers/${id}`, {
+      method: 'DELETE',
+      headers: { 'X-Admin-Password': adminPass }
+    });
+    if (!res.ok) throw new Error();
+    allWorkers = allWorkers.filter(w => (w._id||w.id) != id);
+    updateStats();
+    renderWorkers();
+    showToast('🗑️ تم حذف العامل');
+  } catch {
+    showToast('❌ فشل في الحذف');
+  }
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toastMsg');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 3000);
+}
+
+// Auto-refresh every 60 seconds
+setInterval(() => { if (adminPass) loadAll(); }, 60000);
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "جاك.ما — خدامة البيت بالمغرب",
+  "short_name": "جاك.ما",
+  "description": "ابحث عن تريسيان، بلومبي، صباغ قريبين منك — اتصل مباشرة بلا شناقة",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#6b1a12",
+  "theme_color": "#c0392b",
+  "lang": "ar",
+  "dir": "rtl",
+  "orientation": "portrait-primary",
+  "categories": ["business", "utilities"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+node_modules/
+.env
+.env.*
+*.log
+
+# Production data — kept private (real worker PII)
+data/
+!data/.gitkeep
+
+# LoRA training artifacts — regenerable from scripts
+data/external/
+data/finetune/raw/
+data/finetune/processed/
+models/
+*.gguf
+*.safetensors
+__pycache__/
+*.pyc
+
+# Internal handoff / local-only docs
+HANDOFF*.md
+.handoff_local*
+
+# Vercel
+.vercel/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>جاك ذكي — Darija LoRA Demo · جاك.ما</title>
+<meta name="description" content="مساعد جاك.ما بالدارجة المغربية — نموذج LoRA مدرّب على Qwen 2.5-1.5B.">
+<style>
+  :root { --gold:#c8970a; --gold-light:#f6c90e; --bg:#faf8f3; --text:#1e1e1e; --muted:#777; --border:#e5e1d8; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 16px 12px 24px; }
+  header { text-align: center; padding: 8px 0 14px; }
+  header h1 { font-size: 22px; font-weight: 900; background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  header .sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  header .badge { display: inline-block; margin-top: 8px; padding: 4px 10px; border-radius: 12px; background: #d5f5e3; color: #1a7a4a; font-size: 11px; font-weight: 700; }
+  .about { background: #fff; border: 1.5px solid var(--border); border-radius: 14px; padding: 12px 14px; margin-bottom: 14px; font-size: 13px; line-height: 1.7; color: #444; }
+  .about a { color: var(--gold); font-weight: 700; text-decoration: none; }
+  .about a:hover { text-decoration: underline; }
+  .frame-wrap { background: #fff; border: 1.5px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 4px 18px rgba(0,0,0,.05); }
+  iframe { width: 100%; min-height: 720px; border: 0; display: block; background: #fff; }
+  .foot { text-align: center; margin-top: 12px; font-size: 12px; color: var(--muted); }
+  .foot a { color: var(--gold); text-decoration: none; font-weight: 700; }
+  .foot a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>جاك ذكي 🤖 — Darija LoRA Demo</h1>
+    <div class="sub">المساعد الذكي ديال جاك.ما بالدارجة المغربية</div>
+    <div class="badge">Qwen2.5-1.5B + jakma-darija-A LoRA</div>
+  </header>
+
+  <div class="about">
+    هذا نموذج مفتوح المصدر دربتُه على <strong>53,325</strong> مثال دارجة (DODa + jak.ma).
+    قاعدة <strong>Qwen2.5-1.5B-Instruct</strong>، LoRA r=16، loss نهائي <strong>0.5612</strong>.
+    تكلفة التدريب: <strong>$0.57</strong> على RTX A5000.<br>
+    <a href="https://huggingface.co/Samielakkad1/jakma-darija-A-adapter" target="_blank" rel="noopener">🤗 النموذج على Hugging Face</a>
+    ·
+    <a href="https://huggingface.co/spaces/samielakkad1/jakma-darija-chat" target="_blank" rel="noopener">🚀 افتح الديمو فالتاب الجديدة</a>
+  </div>
+
+  <div class="frame-wrap">
+    <iframe
+      src="https://samielakkad1-jakma-darija-chat.hf.space"
+      title="jakma darija chat"
+      allow="clipboard-write"
+      sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+      loading="lazy"></iframe>
+  </div>
+
+  <div class="foot">
+    Powered by <a href="https://huggingface.co/Samielakkad1/jakma-darija-A-adapter" target="_blank" rel="noopener">jakma-darija-A-adapter</a>
+    · <a href="/">جاك.ما</a>
+    · <a href="https://github.com/Samielakkad/jakma" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div>
+</body>
+</html>

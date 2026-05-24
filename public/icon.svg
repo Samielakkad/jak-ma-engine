@@ -1,0 +1,78 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e0a08"/>
+      <stop offset="50%" stop-color="#6b1a12"/>
+      <stop offset="100%" stop-color="#a02218"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+
+  <!-- Outer gold border -->
+  <rect x="16" y="16" width="480" height="480" rx="82" fill="none" stroke="#f6c90e" stroke-width="5"/>
+  <!-- Inner gold border -->
+  <rect x="28" y="28" width="456" height="456" rx="72" fill="none" stroke="#f6c90e" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Zellige corner triangles - top left -->
+  <polygon points="16,16 76,16 16,76" fill="#f6c90e" opacity="0.55"/>
+  <polygon points="16,16 52,16 16,52" fill="#f6c90e" opacity="0.85"/>
+  <!-- top right -->
+  <polygon points="496,16 436,16 496,76" fill="#f6c90e" opacity="0.55"/>
+  <polygon points="496,16 460,16 496,52" fill="#f6c90e" opacity="0.85"/>
+  <!-- bottom left -->
+  <polygon points="16,496 76,496 16,436" fill="#f6c90e" opacity="0.55"/>
+  <polygon points="16,496 52,496 16,460" fill="#f6c90e" opacity="0.85"/>
+  <!-- bottom right -->
+  <polygon points="496,496 436,496 496,436" fill="#f6c90e" opacity="0.55"/>
+  <polygon points="496,496 460,496 496,460" fill="#f6c90e" opacity="0.85"/>
+
+  <!-- Zellige side mid-diamonds -->
+  <polygon points="256,16 276,36 256,56 236,36" fill="#f6c90e" opacity="0.5"/>
+  <polygon points="256,456 276,476 256,496 236,476" fill="#f6c90e" opacity="0.5"/>
+  <polygon points="16,256 36,236 56,256 36,276" fill="#f6c90e" opacity="0.5"/>
+  <polygon points="456,256 476,236 496,256 476,276" fill="#f6c90e" opacity="0.5"/>
+
+  <!-- House body (white) -->
+  <rect x="148" y="228" width="216" height="148" rx="4" fill="rgba(255,255,255,0.93)"/>
+
+  <!-- House roof (gold triangle) -->
+  <polygon points="256,96 392,232 120,232" fill="#f6c90e"/>
+  <!-- Roof highlight edge -->
+  <polygon points="256,96 392,232 120,232" fill="none" stroke="#fff" stroke-width="2.5" opacity="0.3"/>
+
+  <!-- Chimney -->
+  <rect x="298" y="118" width="28" height="68" rx="3" fill="#f6c90e"/>
+  <rect x="293" y="114" width="38" height="10" rx="2" fill="#c8970a"/>
+
+  <!-- Moroccan arched door (keyhole arch) -->
+  <path d="M226,376 L226,295 Q226,258 256,258 Q286,258 286,295 L286,376 Z" fill="#6b1a12"/>
+  <!-- Door frame gold -->
+  <path d="M226,376 L226,295 Q226,258 256,258 Q286,258 286,295 L286,376 Z" fill="none" stroke="#f6c90e" stroke-width="3"/>
+
+  <!-- Moroccan 6-pointed star (khatim) above door -->
+  <g transform="translate(256,230)">
+    <polygon points="0,-22 6,-10 19,-10 9,0 13,13 0,6 -13,13 -9,0 -19,-10 -6,-10" fill="#f6c90e" opacity="0.9"/>
+    <circle cx="0" cy="0" r="5" fill="#f6c90e"/>
+  </g>
+
+  <!-- Windows -->
+  <rect x="158" y="248" width="52" height="52" rx="26" fill="#6b1a12" opacity="0.75"/>
+  <line x1="184" y1="248" x2="184" y2="300" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+  <line x1="158" y1="274" x2="210" y2="274" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+
+  <rect x="302" y="248" width="52" height="52" rx="26" fill="#6b1a12" opacity="0.75"/>
+  <line x1="328" y1="248" x2="328" y2="300" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+  <line x1="302" y1="274" x2="354" y2="274" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+
+  <!-- Gold divider line -->
+  <line x1="70" y1="396" x2="442" y2="396" stroke="#f6c90e" stroke-width="2.5"/>
+  <line x1="70" y1="400" x2="442" y2="400" stroke="#f6c90e" stroke-width="1" opacity="0.4"/>
+
+  <!-- جاك.ما text -->
+  <text x="256" y="462" font-family="'Arial','Helvetica',sans-serif" font-size="96" font-weight="900" text-anchor="middle" fill="#ffffff" letter-spacing="-1">جاك.ما</text>
+
+  <!-- Subtle bottom tagline -->
+  <text x="256" y="494" font-family="Arial,sans-serif" font-size="20" text-anchor="middle" fill="#f6c90e" opacity="0.8" letter-spacing="1">خدمات المنزل</text>
+</svg>

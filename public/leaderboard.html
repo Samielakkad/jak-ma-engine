@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>jak.ma Live Leaderboard — Production Moroccan-Darija AI Benchmark</title>
+  <meta name="description" content="The first live public leaderboard for Moroccan-Darija home-services AI. Daily scored against real production queries with multi-judge rubric. Submissions open." />
+  <meta name="robots" content="index,follow" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0a0e14; --card: #161b22; --border: #30363d;
+      --text: #e6edf3; --muted: #8b949e; --green: #3fb950; --red: #f85149;
+      --amber: #d29922; --blue: #58a6ff; --purple: #bc8cff;
+      --gold: #d4af37;
+    }
+    body { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px; }
+    header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; margin-bottom: 8px; gap: 16px; }
+    h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; }
+    h1 span.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--green); margin-left: 8px; animation: pulse 2s infinite; vertical-align: middle; }
+    @keyframes pulse { 0%, 100% { opacity: 1 } 50% { opacity: 0.4 } }
+    .sub { color: var(--muted); font-size: 14px; }
+    .sub a { color: var(--blue); text-decoration: none; }
+    .sub a:hover { text-decoration: underline; }
+    .top-nav a { color: var(--muted); text-decoration: none; font-size: 13px; margin-left: 16px; }
+    .top-nav a:hover { color: var(--text); }
+
+    .hero { background: linear-gradient(135deg, #1a1f2e 0%, #161b22 100%); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin: 24px 0; }
+    .hero h2 { font-size: 18px; margin-bottom: 6px; font-weight: 600; }
+    .hero p { font-size: 14px; color: var(--muted); max-width: 720px; }
+    .hero p code { background: #0d1117; padding: 1px 6px; border-radius: 4px; font-size: 12px; }
+
+    .table-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 0; overflow: hidden; margin-bottom: 24px; }
+    .table-wrap h3 { padding: 16px 20px; font-size: 14px; font-weight: 600; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .table-wrap h3 span.meta { font-size: 11px; color: var(--muted); font-weight: 400; }
+
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 12px 20px; text-align: left; font-size: 14px; }
+    th { background: #0d1117; color: var(--muted); font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+    tbody tr { border-top: 1px solid var(--border); }
+    tbody tr:hover { background: #0d1117; }
+    td.rank { font-weight: 700; color: var(--muted); width: 50px; }
+    tr.gold td.rank { color: var(--gold); }
+    tr.silver td.rank { color: #c0c0c0; }
+    tr.bronze td.rank { color: #cd7f32; }
+    td.model { font-weight: 600; }
+    td.model .org { color: var(--muted); font-weight: 400; font-size: 12px; margin-left: 6px; }
+    td.score { font-variant-numeric: tabular-nums; font-weight: 600; }
+    td.score.good { color: var(--green); }
+    td.score.ok { color: var(--amber); }
+    td.score.bad { color: var(--red); }
+    td.tag { font-size: 11px; }
+    td.tag span { padding: 2px 8px; border-radius: 10px; background: #21262d; color: var(--muted); }
+    td.tag span.first { background: rgba(63, 185, 80, 0.2); color: var(--green); }
+    td.tag span.you { background: rgba(212, 175, 55, 0.2); color: var(--gold); }
+
+    .submit-section { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+    .submit-section h3 { font-size: 14px; margin-bottom: 12px; }
+    .submit-section p { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+    .submit-section pre { background: #010409; border: 1px solid var(--border); border-radius: 6px; padding: 14px; font-family: ui-monospace, 'SF Mono', monospace; font-size: 11px; color: var(--blue); overflow-x: auto; }
+    .submit-section pre code { color: var(--blue); }
+
+    .methodology { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+    .methodology h3 { font-size: 14px; margin-bottom: 12px; }
+    .methodology ul { margin-left: 20px; font-size: 13px; color: var(--muted); line-height: 1.7; }
+    .methodology ul li strong { color: var(--text); }
+
+    .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+    .panel { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+    .panel h3 { font-size: 13px; margin-bottom: 12px; }
+    canvas { max-height: 200px; }
+
+    footer { color: var(--muted); font-size: 12px; padding: 32px 0 16px; border-top: 1px solid var(--border); margin-top: 32px; }
+    footer a { color: var(--blue); text-decoration: none; }
+
+    .badge-soon { display: inline-block; background: var(--amber); color: #000; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; margin-left: 6px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>jak.ma Leaderboard <span class="dot"></span></h1>
+        <div class="sub">Live public benchmark · Moroccan-Darija home-services AI · daily-refreshed</div>
+      </div>
+      <nav class="top-nav">
+        <a href="/">jak.ma</a>
+        <a href="/eval">live metrics</a>
+        <a href="https://github.com/Samielakkad/jak-ma-eval-suite" target="_blank">eval suite</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h2>The first live, public benchmark for production Moroccan-Darija AI <span class="badge-soon">v0.1</span></h2>
+      <p>
+        Most NLP benchmarks are static and synthetic. This one is <strong>continuously updated</strong> using a rotating sample of real production queries from jak.ma, scored by three independent LLM judges with Cohen's κ reported. Anyone can submit a model via <code>POST /api/leaderboard/submit</code> — open methodology, reproducible, fair.
+      </p>
+    </div>
+
+    <div class="table-wrap">
+      <h3>
+        Top models — last 7 days
+        <span class="meta" id="lastUpdate">Loading...</span>
+      </h3>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Model</th>
+            <th>Avg rubric</th>
+            <th>Factual</th>
+            <th>Natural</th>
+            <th>Trade-fit</th>
+            <th>Latency p50</th>
+            <th>Tag</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardBody">
+          <tr>
+            <td colspan="8" style="text-align: center; padding: 32px; color: var(--muted);">
+              No submissions yet. Be the first — see "Submit your model" below.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panels">
+      <div class="panel">
+        <h3>Per-dimension score across top 5 models</h3>
+        <canvas id="dimChart"></canvas>
+      </div>
+      <div class="panel">
+        <h3>Avg score over time (7-day window)</h3>
+        <canvas id="timeChart"></canvas>
+      </div>
+    </div>
+
+    <div class="submit-section">
+      <h3>Submit your model</h3>
+      <p>Any OpenAI-compatible chat completion endpoint can be benchmarked. Your model gets called against ~50 rotating real-user queries per evaluation cycle (daily). Results appear here within 24 hours.</p>
+      <pre><code>curl -X POST https://jak.ma/api/leaderboard/submit \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model_name":   "your-model-v1",
+    "organization": "Your Org / your-name",
+    "endpoint":     "https://your-api.example.com/v1/chat/completions",
+    "api_key":      "OPTIONAL_bearer_token",
+    "model_id":     "model-identifier-for-your-api",
+    "contact":      "you@example.com",
+    "description":  "Brief — one sentence"
+  }'</code></pre>
+      <p style="margin-top: 12px; color: var(--muted); font-size: 12px;">
+        ⚠ Your endpoint will be called from jak.ma's IPs only. Rate-limited to 50 calls/day per submission. API keys (if any) are encrypted at rest. Submissions that violate jak.ma's terms (PII exfiltration attempts, prompt injection, etc.) are auto-banned.
+      </p>
+    </div>
+
+    <div class="methodology">
+      <h3>Methodology</h3>
+      <ul>
+        <li><strong>Eval queries:</strong> rotating sample of ~50 real production queries per day, drawn from jak.ma's <code>eval_logs</code> collection. PII scrubbed. Stratified across 15 user-task types (recommend, price, DIY, emergency, trust, negotiation, etc.).</li>
+        <li><strong>Judges:</strong> three independent LLMs (Grok-3, GPT-4o-mini, Claude-3.5-Haiku) score each response 0-5 on 5 rubric dimensions (factuality, naturalness, trade-fit, price-fairness, geographic). Cohen's κ between judges reported per dimension.</li>
+        <li><strong>Final score:</strong> averaged across judges. Per-task breakdowns also published.</li>
+        <li><strong>Latency:</strong> end-to-end time from request → first token, measured server-side.</li>
+        <li><strong>Reproducibility:</strong> full eval methodology + adversarial probes at <a href="https://github.com/Samielakkad/jak-ma-eval-suite" target="_blank">github.com/Samielakkad/jak-ma-eval-suite</a>.</li>
+        <li><strong>Cited in:</strong> <em>Lexicon-Grounded Production Chat for Moroccan Darija: A Verifier-First Architecture</em>, WANLP 2026 (submission).</li>
+      </ul>
+    </div>
+
+    <footer>
+      Authored by <a href="https://www.linkedin.com/in/sami-el-akkad" target="_blank">Sami EL AKKAD</a> · MSc AI candidate at Tsinghua SIGS · jak.ma ·
+      <a href="https://github.com/Samielakkad/jak-ma-eval-suite" target="_blank">eval suite</a> ·
+      <a href="/eval">live system metrics</a>
+    </footer>
+  </div>
+
+  <script>
+    const fmtMs = ms => ms == null ? '—' : (ms < 1000 ? `${Math.round(ms)} ms` : `${(ms / 1000).toFixed(1)} s`);
+    const pickClass = (v) => v == null ? '' : (v >= 4 ? 'good' : v >= 3 ? 'ok' : 'bad');
+
+    async function refresh() {
+      try {
+        const r = await fetch('/api/leaderboard/scores', { cache: 'no-store' });
+        const d = await r.json();
+        renderBoard(d);
+      } catch (e) {
+        document.getElementById('lastUpdate').textContent = 'Failed to load';
+      }
+    }
+
+    function renderBoard(d) {
+      const body = document.getElementById('leaderboardBody');
+      const update = document.getElementById('lastUpdate');
+
+      if (!d.entries || d.entries.length === 0) {
+        update.textContent = d.message || 'No submissions yet';
+        return;
+      }
+
+      update.textContent = `Last updated ${new Date(d.last_eval_at).toLocaleString()}`;
+      body.innerHTML = d.entries.map((e, i) => {
+        const rankClass = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+        const yourBadge = e.is_jakma ? '<span class="you">jak.ma</span>' : '';
+        const newBadge = e.is_new ? '<span class="first">new</span>' : '';
+        return `
+          <tr class="${rankClass}">
+            <td class="rank">#${i + 1}</td>
+            <td class="model">${e.model_name}<span class="org">${e.organization || ''}</span></td>
+            <td class="score ${pickClass(e.avg_score)}">${e.avg_score?.toFixed(2) ?? '—'}</td>
+            <td class="score ${pickClass(e.factuality)}">${e.factuality?.toFixed(1) ?? '—'}</td>
+            <td class="score ${pickClass(e.naturalness)}">${e.naturalness?.toFixed(1) ?? '—'}</td>
+            <td class="score ${pickClass(e.trade_fit)}">${e.trade_fit?.toFixed(1) ?? '—'}</td>
+            <td>${fmtMs(e.latency_p50_ms)}</td>
+            <td class="tag">${yourBadge} ${newBadge}</td>
+          </tr>
+        `;
+      }).join('');
+
+      // Charts
+      const top5 = d.entries.slice(0, 5);
+      if (window._dimChart) window._dimChart.destroy();
+      window._dimChart = new Chart(document.getElementById('dimChart'), {
+        type: 'radar',
+        data: {
+          labels: ['Factuality', 'Naturalness', 'Trade-fit', 'Price-fairness', 'Geographic'],
+          datasets: top5.map((e, i) => ({
+            label: e.model_name,
+            data: [e.factuality, e.naturalness, e.trade_fit, e.price_fairness, e.geographic],
+            backgroundColor: `hsla(${i * 72}, 70%, 50%, 0.15)`,
+            borderColor: `hsl(${i * 72}, 70%, 50%)`,
+            borderWidth: 2,
+          })),
+        },
+        options: {
+          responsive: true,
+          scales: { r: { beginAtZero: true, max: 5, ticks: { display: false }, grid: { color: '#21262d' }, pointLabels: { color: '#e6edf3', font: { size: 10 } } } },
+          plugins: { legend: { labels: { color: '#e6edf3', font: { size: 10 } } } },
+        },
+      });
+
+      // Time chart placeholder (will be populated by /api/leaderboard/history)
+    }
+
+    refresh();
+    setInterval(refresh, 60000);  // refresh every 60s
+  </script>
+</body>
+</html>

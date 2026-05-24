@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>jak.ma — Live Production Eval Dashboard</title>
+  <meta name="description" content="Live production metrics for jak.ma's grounded retrieval AI: latency p50/p95, verifier pass rate, daily query volume. Open methodology." />
+  <meta name="robots" content="index,follow" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0d1117; --card: #161b22; --border: #30363d;
+      --text: #e6edf3; --muted: #8b949e; --green: #3fb950; --red: #f85149;
+      --amber: #d29922; --blue: #58a6ff; --purple: #bc8cff;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px; }
+    header { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+    h1 { font-size: 24px; font-weight: 700; }
+    h1 span.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--green); margin-left: 8px; animation: pulse 2s infinite; vertical-align: middle; }
+    @keyframes pulse { 0%, 100% { opacity: 1 } 50% { opacity: 0.4 } }
+    .sub { color: var(--muted); font-size: 14px; }
+    .sub a { color: var(--blue); text-decoration: none; }
+    .sub a:hover { text-decoration: underline; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 24px 0; }
+    .stat { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+    .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+    .stat-value { font-size: 28px; font-weight: 700; margin-top: 6px; font-feature-settings: 'tnum'; }
+    .stat-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .stat-value.good { color: var(--green); }
+    .stat-value.warn { color: var(--amber); }
+    .stat-value.bad  { color: var(--red); }
+
+    .panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .panel { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+    .panel h3 { font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+    canvas { max-height: 220px; }
+
+    .arch { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+    .arch h3 { font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+    .arch pre { font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--muted); white-space: pre; overflow-x: auto; line-height: 1.6; }
+    .arch-legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 16px; font-size: 12px; color: var(--muted); }
+    .arch-legend span { color: var(--text); }
+
+    .try { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+    .try h3 { font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+    .try p { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+    .try .cmd { background: #010409; border: 1px solid var(--border); border-radius: 6px; padding: 12px; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--blue); overflow-x: auto; }
+    .try button { background: var(--blue); color: #fff; border: none; padding: 8px 14px; border-radius: 6px; font-size: 12px; cursor: pointer; margin-top: 8px; }
+    .try button:hover { opacity: 0.9; }
+
+    footer { color: var(--muted); font-size: 12px; padding: 32px 0 16px; border-top: 1px solid var(--border); margin-top: 32px; }
+    footer a { color: var(--blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    .badge { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 12px; background: var(--green); color: #000; font-weight: 700; margin-left: 8px; vertical-align: middle; text-transform: uppercase; letter-spacing: 0.5px; }
+    .badge.warn { background: var(--amber); }
+    .badge.bad { background: var(--red); color: #fff; }
+
+    .empty { background: var(--card); border: 1px dashed var(--border); border-radius: 8px; padding: 32px; text-align: center; color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>jak.ma — Live Eval Dashboard <span class="dot"></span></h1>
+      <span class="sub">Production · auto-refresh 30s · <a href="/">jak.ma</a> · <a href="https://github.com/elakkadsami00/jak-ma-eval-suite" target="_blank">eval suite</a></span>
+    </header>
+    <p class="sub" style="margin-bottom: 8px;">
+      Two-pass grounded retrieval + AI price-fairness verifier + Darija fine-tune scaffolding for a Moroccan home-services marketplace.
+      Every chat response is checked by a grounding verifier before users see it; this dashboard is live production telemetry from <code>eval_logs</code>.
+    </p>
+
+    <div id="empty" class="empty" style="display:none;">No production traffic yet. Drive a query through the chat at <a href="/" style="color: var(--blue);">jak.ma</a> to populate the metrics.</div>
+
+    <div class="grid">
+      <div class="stat"><div class="stat-label">Total queries</div><div class="stat-value" id="total">—</div><div class="stat-sub" id="totalSub">since deployment</div></div>
+      <div class="stat"><div class="stat-label">p50 latency</div><div class="stat-value" id="p50">—</div><div class="stat-sub">end-to-end</div></div>
+      <div class="stat"><div class="stat-label">p95 latency</div><div class="stat-value" id="p95">—</div><div class="stat-sub">end-to-end</div></div>
+      <div class="stat"><div class="stat-label">Verifier pass rate</div><div class="stat-value" id="verifier">—</div><div class="stat-sub" id="verifierSub">grounding-checked</div></div>
+      <div class="stat"><div class="stat-label">Worker pool</div><div class="stat-value" id="workers">—</div><div class="stat-sub">approved + active</div></div>
+      <div class="stat"><div class="stat-label">Image queries</div><div class="stat-value" id="images">—</div><div class="stat-sub">multimodal hits</div></div>
+    </div>
+
+    <div class="panels">
+      <div class="panel">
+        <h3>Query volume — last 24h (hourly)</h3>
+        <canvas id="volChart"></canvas>
+      </div>
+      <div class="panel">
+        <h3>Trade distribution — top categories classified</h3>
+        <canvas id="tradeChart"></canvas>
+      </div>
+    </div>
+
+    <div class="arch">
+      <h3>Architecture <span class="badge" id="flagBadge">LIVE</span></h3>
+      <pre>
+   user query in Darija
+        │
+        ▼
+┌──────────────────────────────────────────────────┐
+│  Pass 0 — regex pre-filter (deterministic, ~0ms) │
+│  lib/text-classifier.js                          │
+└──────────────────────────────────────────────────┘
+        │ regex hit                  │ regex miss
+        ▼                            ▼
+   skip Pass 1            ┌──────────────────────┐
+                          │ Pass 1 — Grok-3-mini │
+                          │ JSON mode, ≤4s budget│
+                          └──────────────────────┘
+        │                            │
+        └─────────────┬──────────────┘
+                      ▼
+┌──────────────────────────────────────────────────┐
+│  Retrieval — MongoDB composite filter            │
+│  (category|secondary) × city × approved          │
+│  sort: featured > verified > rating              │
+└──────────────────────────────────────────────────┘
+                      │
+                      ▼
+┌──────────────────────────────────────────────────┐
+│  Pass 2 — constrained streaming                  │
+│  model CAN ONLY reference candidates by _id      │
+│  emits <<WORKERS:id1,id2,id3>> at end            │
+└──────────────────────────────────────────────────┘
+                      │
+                      ▼
+┌──────────────────────────────────────────────────┐
+│  Verifier — grounding check                      │
+│  cited IDs ∈ candidate set?                      │
+│  prices ∈ [30, 50_000] MAD?                      │
+│  unverified proper nouns flagged                 │
+└──────────────────────────────────────────────────┘
+                      │
+                      ▼
+              SSE → chat drawer
+              eval_logs ← persisted</pre>
+      <div class="arch-legend">
+        <div>Stack: <span>Node.js + Express + MongoDB on Vercel</span></div>
+        <div>LLM: <span>Grok-3-mini · Grok-2-Vision (fallback)</span></div>
+        <div>Tests: <span>113 unit + integration, 100% pass</span></div>
+        <div>Eval: <span>5-dim Darija rubric, LLM-judge</span></div>
+      </div>
+    </div>
+
+    <div class="try">
+      <h3>Reproduce locally</h3>
+      <p>Hit the chat API directly. The grounded retrieval response includes a <code>verifier</code> field with <code>ok / score / violations_count</code> — that's the smoking gun that retrieval is grounded:</p>
+      <div class="cmd" id="cmd">curl -sL -X POST https://jak.ma/api/ai/chat -H "Content-Type: application/json" \
+  --data-binary $'{"messages":[{"role":"user","text":"صنبور كيقطر فطنجة عاجل"}]}'</div>
+      <button onclick="navigator.clipboard.writeText(document.getElementById('cmd').textContent.trim())">Copy command</button>
+      <button onclick="window.open('https://github.com/elakkadsami00/jak-ma-eval-suite', '_blank')">Eval-suite repo</button>
+    </div>
+
+    <footer>
+      Authored by <a href="https://www.linkedin.com/in/sami-el-akkad" target="_blank">Sami EL AKKAD</a> ·
+      MSc AI candidate at Tsinghua SIGS ·
+      <a href="/COMPLETION_REPORT.md">technical writeup</a> ·
+      Dashboard data refreshes every 30 seconds.
+    </footer>
+  </div>
+
+  <script>
+    const fmtMs = ms => ms == null ? '—' : (ms < 1000 ? `${ms} ms` : `${(ms / 1000).toFixed(1)} s`);
+    const fmtPct = p => p == null ? '—' : `${(p * 100).toFixed(1)}%`;
+    const fmtN = n => n == null ? '—' : Number(n).toLocaleString();
+
+    let volChart, tradeChart;
+
+    function pickClass(ms, thresholds) {
+      if (ms == null) return '';
+      const [good, ok] = thresholds;
+      return ms < good ? 'good' : (ms < ok ? 'warn' : 'bad');
+    }
+
+    function renderStats(d) {
+      const empty = document.getElementById('empty');
+      if (!d.available || d.total === 0) {
+        empty.style.display = 'block';
+        document.getElementById('total').textContent = '0';
+        document.getElementById('totalSub').textContent = d.message || 'no traffic yet';
+        document.getElementById('workers').textContent = fmtN(d.worker_count);
+        return;
+      }
+      empty.style.display = 'none';
+
+      document.getElementById('total').textContent = fmtN(d.total);
+      const tEl = document.getElementById('p50');
+      tEl.textContent = fmtMs(d.latency_ms?.p50);
+      tEl.className = 'stat-value ' + pickClass(d.latency_ms?.p50, [3000, 8000]);
+
+      const p95El = document.getElementById('p95');
+      p95El.textContent = fmtMs(d.latency_ms?.p95);
+      p95El.className = 'stat-value ' + pickClass(d.latency_ms?.p95, [10000, 18000]);
+
+      const vEl = document.getElementById('verifier');
+      const rate = d.verifier?.pass_rate;
+      vEl.textContent = fmtPct(rate);
+      vEl.className = 'stat-value ' + (rate >= 0.95 ? 'good' : (rate >= 0.85 ? 'warn' : 'bad'));
+      document.getElementById('verifierSub').textContent = `${d.verifier?.ok || 0} / ${d.total} ok`;
+
+      document.getElementById('workers').textContent = fmtN(d.worker_count);
+      document.getElementById('images').textContent = fmtN(d.image_requests);
+
+      // Volume timeline
+      const timeline = d.timeline_hourly || {};
+      const hours = Object.keys(timeline).sort();
+      const counts = hours.map(h => timeline[h]);
+      const labels = hours.map(h => h.replace('T', ' ') + ':00');
+      if (volChart) volChart.destroy();
+      volChart = new Chart(document.getElementById('volChart'), {
+        type: 'bar',
+        data: { labels, datasets: [{ label: 'queries', data: counts, backgroundColor: '#58a6ff' }] },
+        options: { responsive: true, plugins: { legend: { display: false } }, scales: { x: { ticks: { color: '#8b949e' }, grid: { color: '#21262d' } }, y: { beginAtZero: true, ticks: { color: '#8b949e' }, grid: { color: '#21262d' } } } },
+      });
+
+      // Trade histogram
+      const trades = d.trades_histogram || {};
+      const tEntries = Object.entries(trades).sort((a, b) => b[1] - a[1]).slice(0, 10);
+      if (tradeChart) tradeChart.destroy();
+      tradeChart = new Chart(document.getElementById('tradeChart'), {
+        type: 'doughnut',
+        data: { labels: tEntries.map(e => e[0]), datasets: [{ data: tEntries.map(e => e[1]), backgroundColor: ['#3fb950', '#58a6ff', '#bc8cff', '#d29922', '#f85149', '#79c0ff', '#a371f7', '#ff7b72', '#f0883e', '#56d364'] }] },
+        options: { responsive: true, plugins: { legend: { position: 'right', labels: { color: '#e6edf3', font: { size: 11 } } } } },
+      });
+    }
+
+    async function refresh() {
+      try {
+        const r = await fetch('/api/ai/public-stats', { cache: 'no-store' });
+        const d = await r.json();
+        renderStats(d);
+      } catch (e) {
+        document.getElementById('empty').style.display = 'block';
+        document.getElementById('empty').innerHTML = '⚠ Failed to load stats: ' + e.message;
+      }
+    }
+
+    refresh();
+    setInterval(refresh, 30000);
+  </script>
+</body>
+</html>

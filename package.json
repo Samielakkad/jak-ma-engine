@@ -1,0 +1,33 @@
+{
+  "name": "jak-ma",
+  "version": "1.0.0",
+  "description": "جاك.ما — خدمات المنزل بالمغرب",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node --test tests/grounded_retrieval.test.js tests/price-fairness.test.js tests/grounded_integration.test.js",
+    "test:grounded": "node --test tests/grounded_retrieval.test.js",
+    "test:price-fairness": "node --test tests/price-fairness.test.js",
+    "test:integration": "node --test tests/grounded_integration.test.js",
+    "smoke": "node scripts/smoke-test.js",
+    "diag:prices": "node scripts/diag-price-fields.js",
+    "backfill:prices": "node scripts/backfill-prices.js",
+    "backfill:prices:write": "node scripts/backfill-prices.js --write"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "escape-html": "^1.0.3",
+    "express": "^4.18.2",
+    "express-rate-limit": "^8.3.2",
+    "mongodb": "^7.1.1",
+    "node-fetch": "^2.7.0",
+    "pngjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5"
+  }
+}
