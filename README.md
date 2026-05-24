@@ -29,7 +29,7 @@ Full architecture, cost math, latency budgets, and defensibility checklist: [**A
 
 ### Engineering deep-dives (`docs/`)
 
-7 dedicated docs, one per subsystem, each with file:line citations + honest "what's NOT built" sections + transfer notes for audio work where they exist naturally:
+7 dedicated docs, one per subsystem, each with file:line citations, limitations sections, and notes on patterns applicable to audio work:
 
 - [**`docs/AGENT.md`**](./docs/AGENT.md) — the tool-calling agent (3 tools, allow-list, single-round loop)
 - [**`docs/CLASSIFIER.md`**](./docs/CLASSIFIER.md) — Darija/Arabizi classifier (5 input forms, 260+ keywords, Arabizi 3/7/9/8/5/6)
