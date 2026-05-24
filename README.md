@@ -27,6 +27,20 @@ This repo contains the code-only architecture: server, libraries, agent + classi
 
 Full architecture, cost math, latency budgets, and defensibility checklist: [**ARCHITECTURE.md**](./ARCHITECTURE.md).
 
+### Engineering deep-dives (`docs/`)
+
+7 dedicated docs, one per subsystem, each with file:line citations + honest "what's NOT built" sections + transfer notes for audio work where they exist naturally:
+
+- [**`docs/AGENT.md`**](./docs/AGENT.md) — the tool-calling agent (3 tools, allow-list, single-round loop)
+- [**`docs/CLASSIFIER.md`**](./docs/CLASSIFIER.md) — Darija/Arabizi classifier (5 input forms, 260+ keywords, Arabizi 3/7/9/8/5/6)
+- [**`docs/LLM-ROUTING.md`**](./docs/LLM-ROUTING.md) — multi-provider routing (Gemini + Claude + HF, OpenAI-shape adapter)
+- [**`docs/EVALUATION.md`**](./docs/EVALUATION.md) — eval_logs schema, 57 regression tests, 5-dim rubric, leaderboard
+- [**`docs/MULTIMODAL.md`**](./docs/MULTIMODAL.md) — TF.js MobileNet (<250ms) + LLM vision fallback
+- [**`docs/DARIJA-LORA.md`**](./docs/DARIJA-LORA.md) — open-source LoRA training methodology + production integration
+- [**`docs/PRODUCTION-OPS.md`**](./docs/PRODUCTION-OPS.md) — Vercel cold-starts, Mongo schemas, SSE translation, error handling, end-to-end query trace
+
+Index: [`docs/README.md`](./docs/README.md).
+
 ---
 
 ## Test coverage
