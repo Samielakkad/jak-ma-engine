@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>الشروط والأحكام — جاك.ما | Conditions d'utilisation | Terms of Use</title>
-  <meta name="description" content="الشروط والأحكام لاستخدام منصة جاك.ما — منصة الصنايعية بالمغرب بلا شناقة. Conditions d'utilisation de jak.ma. jak.ma Terms of Use."/>
+  <title>الشروط العامة للاستخدام — جاك.ما | Conditions Générales d'Utilisation | Terms of Use</title>
+  <meta name="description" content="الشروط العامة لاستخدام منصة جاك.ما، مطابقة للقانون المغربي (القانون 09-08، القانون 31-08، القانون 53-05). Conditions Générales d'Utilisation conformes au droit marocain."/>
   <link rel="canonical" href="https://jak.ma/terms.html"/>
   <link rel="alternate" hreflang="ar" href="https://jak.ma/terms.html"/>
   <link rel="alternate" hreflang="fr" href="https://jak.ma/terms.html#fr"/>
@@ -28,21 +28,23 @@
 
     header{background:var(--red);position:sticky;top:0;z-index:100;box-shadow:0 3px 12px rgba(0,0,0,.25)}
     .hdr{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:10px 14px}
-    .logo{font-size:22px;font-weight:900;color:#fff;white-space:nowrap;line-height:1}
+    .logo{font-size:22px;font-weight:900;color:#fff;white-space:nowrap;line-height:1;text-decoration:none}
     .logo span{color:var(--gold-l)}
     .logo small{display:block;font-size:9px;font-weight:400;color:rgba(255,255,255,.9);letter-spacing:1px}
     .back{margin-inline-start:auto;background:#fff;color:var(--red);border:none;border-radius:24px;padding:8px 16px;font-size:13px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}
     .back:hover{background:var(--gold-l)}
 
-    .lang-tabs{display:flex;gap:6px;background:#fff;border-bottom:1px solid var(--border);padding:10px 14px;position:sticky;top:58px;z-index:90;justify-content:center}
+    .lang-tabs{display:flex;gap:6px;background:#fff;border-bottom:1px solid var(--border);padding:10px 14px;position:sticky;top:58px;z-index:90;justify-content:center;flex-wrap:wrap}
     .lang-tab{background:transparent;border:1.5px solid var(--border);color:var(--muted);border-radius:20px;padding:6px 16px;font-size:13px;font-weight:700;cursor:pointer;transition:.18s}
     .lang-tab:hover{border-color:var(--red);color:var(--red)}
     .lang-tab.active{background:var(--red);color:#fff;border-color:var(--red)}
+    .lang-tab.aux{background:var(--gold-l);color:var(--text);border-color:var(--gold)}
+    .lang-tab.aux.active{background:var(--gold);color:#fff;border-color:var(--gold)}
 
     .wrap{max-width:780px;margin:0 auto;padding:24px 18px 60px}
     .doc{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:28px 26px;box-shadow:var(--shadow)}
     .doc h1{font-size:26px;font-weight:900;color:var(--red);margin-bottom:6px;line-height:1.3}
-    .doc .updated{font-size:13px;color:var(--muted);margin-bottom:22px}
+    .doc .updated{font-size:13px;color:var(--muted);margin-bottom:14px}
     .doc h2{font-size:18px;font-weight:900;color:var(--text);margin:24px 0 10px;padding-block-end:6px;border-bottom:2px solid var(--gold-l)}
     .doc h3{font-size:15px;font-weight:800;color:var(--text);margin:16px 0 6px}
     .doc p{margin-bottom:11px;font-size:15px}
@@ -50,8 +52,20 @@
     .doc li{margin-bottom:6px}
     .doc strong{font-weight:800;color:var(--red-d)}
     .doc a{color:var(--red);text-decoration:underline}
+
+    .auth-notice{background:#fff4d6;border:1.5px solid var(--gold);border-radius:10px;padding:12px 14px;margin:8px 0 22px;font-size:13.5px;line-height:1.6}
+    .auth-notice strong{color:var(--red-d)}
+
     .doc .callout{background:#fff8e1;border-inline-start:4px solid var(--gold);padding:12px 14px;border-radius:8px;margin:14px 0;font-size:14px}
+    .doc .consumer{background:#e8f5e9;border-inline-start:4px solid var(--green);padding:10px 14px;border-radius:8px;margin:12px 0;font-size:14px}
+    .doc .consumer strong{color:var(--green)}
     .doc .disclaimer{background:#f5f5f0;border:1px dashed var(--border);padding:12px 14px;border-radius:8px;margin-top:24px;font-size:13px;color:var(--muted);font-style:italic}
+
+    .darija-box{background:#fafaf5;border:1.5px dashed var(--gold);border-radius:10px;padding:14px 16px;margin:6px 0 22px;display:none}
+    .darija-box.open{display:block}
+    .darija-box h4{font-size:14px;font-weight:800;color:var(--gold);margin-bottom:8px}
+    .darija-box ul{margin:0 18px;font-size:14px;line-height:1.8}
+    .darija-box li{margin-bottom:4px}
 
     .lang-block{display:none}
     .lang-block.active{display:block}
@@ -76,417 +90,549 @@
 
 <header>
   <div class="hdr">
-    <a href="/" class="logo" style="text-decoration:none">جاك<span>.ما</span><small>JAK.MA</small></a>
+    <a href="/" class="logo">جاك<span>.ما</span><small>JAK.MA</small></a>
     <a href="/" class="back">العودة</a>
   </div>
 </header>
 
 <div class="lang-tabs">
-  <button class="lang-tab active" data-lang="ar">العربية</button>
+  <button class="lang-tab active" data-lang="ar">العربية الفصحى</button>
   <button class="lang-tab" data-lang="fr">Français</button>
   <button class="lang-tab" data-lang="en">English</button>
+  <button class="lang-tab aux" id="darijaToggle" type="button">بالدارجة 🇲🇦</button>
 </div>
 
 <div class="wrap">
   <div class="doc">
 
-  <!-- ============ ARABIC ============ -->
+  <!-- ============================================================
+       ARABIC — FUSHA (Modern Standard Arabic) — authoritative
+       ============================================================ -->
   <div class="lang-block active" id="lang-ar" dir="rtl">
-    <h1>الشروط والأحكام لاستخدام منصة جاك.ما</h1>
+    <h1>الشروط العامة لاستخدام منصة جاك.ما</h1>
     <p class="updated">آخر تحديث: 26 ماي 2026</p>
 
-    <p>مرحباً بك في <strong>جاك.ما</strong>. هاد الشروط والأحكام كتنظم استعمالك للموقع والتطبيق وجميع الخدمات المرتبطة بيهم (واللي كنسميوهم "المنصة"). ملي كتسجل حساب، كتنشر إعلان، ولا كتطلب خدمة عبر جاك.ما، كتقبل هاد الشروط. إلى ما قبلتيش، خاصك ما تستعملش المنصة.</p>
+    <div class="auth-notice">
+      <strong>نص مرجعي:</strong> النسختان <strong>بالعربية الفصحى</strong> و<strong>بالفرنسية</strong> هما النصّان المرجعيّان من حيث القانون. النسخة بالإنجليزية ترجمة استرشادية. أمّا الملخّص <strong>بالدارجة المغربية</strong> فقد أُعدّ لتسهيل الفهم ولا يُعتدّ به أمام القضاء.
+    </div>
 
-    <h2>1. شنو هي جاك.ما</h2>
-    <p>جاك.ما هي <strong>منصة مجانية بلا عمولة</strong> كتربط بين الزبناء فالمغرب والصنايعية المستقلين ("الصنايعية") — بلومبية، تريسيانة، صباغة، نجارة، نقاوة، نقل... جاك.ما <strong>ماشي طرف</strong> فأي اتفاق بين الزبون والصنايعي، ما كتشغلش الصنايعية، وما كتقدمش الخدمة بنفسها. جاك.ما كتسهل بشكل تقني التواصل بين الطرفين.</p>
+    <div class="darija-box" id="darijaBox-ar">
+      <h4>الملخص بالدارجة 🇲🇦 — باش تفهم بسرعة</h4>
+      <ul>
+        <li>جاك.ما هو موقع كيقربك من الصنايعية فالمغرب، بلا عمولة وبلا وسيط.</li>
+        <li>جاك.ما <strong>ماشي طرف</strong> فالاتفاق ديالك مع الصنايعي — الاتفاق بيناتكم.</li>
+        <li>الخدمة مجانية، وما كنخدوش أي عمولة من الخلاص ديالكم.</li>
+        <li>إلا قبلتي السماح بالموقع، رانا غادي نستعملوه <strong>غير</strong> باش نلقاو ليك الصنايعي القريب — ما كنحتافظوش بيه.</li>
+        <li>كنستعملو Google Analytics و Microsoft Clarity باش نحسّنو الموقع — تفاصيل فالقسم 15.</li>
+        <li>تصريح المعطيات الشخصية لدى <strong>CNDP</strong> فطور الإعداد.</li>
+        <li>الصنايعي اللي كيدير الشناقة، الزيادة المتعمدة فالثمن، أو التقييمات المزورة — كيتمسح من المنصة.</li>
+        <li>إلى كنت مستهلك (ماشي مهني)، عندك <strong>7 أيام</strong> باش تلغي الطلب قبل ما يبدا الصنايعي خدمتو.</li>
+        <li>عندك الحق تشكي لمحكمة المدينة ديالك (ماشي إجبارياً الدار البيضاء).</li>
+        <li>الشروط الرسمية القانونية كاينة تحت بالعربية الفصحى وبالفرنسية.</li>
+      </ul>
+    </div>
 
-    <h2>2. شكون يقدر يستعمل المنصة</h2>
-    <p>خاصك تكون عندك 18 سنة فما فوق وعندك الأهلية القانونية باش تستعمل المنصة حسب القانون المغربي. الصنايعي زيادة على هادشي، خاصو يكون عندو الحق القانوني باش يمارس حرفتو فالمغرب (CNSS، المقاول الذاتي، الرخص المهنية إلى كانت مطلوبة).</p>
+    <h2>1. الأطراف وموضوع المنصّة</h2>
+    <p>"جاك.ما" منصّة إلكترونية يُشغّلها شخص ذاتي خاضع للقانون المغربي يُسمّى في هذه الوثيقة "المُشغِّل". تتيح المنصّة وضع مستعملين-زبناء في علاقة مع حرفيّين مستقلّين ("الحرفيّون") في ميادين السباكة، الكهرباء، الصباغة، النجارة، النظافة، النقل، وما شابهها.</p>
+    <p>المُشغِّل <strong>ليس طرفاً</strong> في عقد الخدمة المُبرم بين الزبون والحرفي، ولا يُشغّل الحرفيّين، ولا يُنفّذ الخدمة بنفسه. يقتصر دور المنصّة على التقريب التقني بين الطرفين.</p>
+    <p>للتواصل القانوني والإداري: <a href="mailto:support@jak.ma">support@jak.ma</a>.</p>
+
+    <h2>2. شروط الأهلية</h2>
+    <p>يجب أن يكون المستعمل بالغاً سنّ الرشد القانوني (18 سنة فأكثر) ومتمتّعاً بالأهلية المدنية وفق القانون المغربي. يجب على الحرفي إضافةً إلى ذلك أن يكون مرخّصاً قانونياً لممارسة حرفته بالمغرب (تسجيل لدى الصندوق الوطني للضمان الاجتماعي إن كان مُلزَماً به، صفة المقاول الذاتي طبقاً للقانون 114-13، أو الرخص المهنية المعتمدة).</p>
 
     <h2>3. الحساب</h2>
     <ul>
-      <li>كتلتزم بأن تعطي معلومات صحيحة وكاملة ملي كتخلق حسابك، وتحينها ملي تتبدل.</li>
-      <li>نتا المسؤول على كل النشاط اللي كيوقع فحسابك وعلى حفظ كلمة السر ديالك.</li>
-      <li>حساب واحد لكل شخص أو شركة. ممنوع تخلق حسابات مزورة ولا تتنحل شخصية شي حد آخر.</li>
-      <li>جاك.ما قادرة توقف أو تحذف أي حساب كيخالف هاد الشروط، بإشعار أو بلا إشعار.</li>
+      <li>يلتزم المستعمل بتقديم معلومات صحيحة ومحيَّنة عند إنشاء حسابه وحفظ كلمة السر الخاصة به.</li>
+      <li>المستعمل مسؤول وحده عن كلّ نشاط يُنجَز عبر حسابه.</li>
+      <li>حساب واحد لكلّ شخص أو منشأة. يُمنع انتحال الهوية أو إنشاء حسابات مكرّرة بقصد التلاعب بالتقييمات.</li>
+      <li>يجوز للمُشغِّل تعليق أيّ حساب أو حذفه في حال مخالفة هذه الشروط، مع إشعار أو دونه.</li>
     </ul>
 
-    <h2>4. نموذج "بلا عمولة"</h2>
-    <p>جاك.ما <strong>ما كتاخدش لا عمولة على الخدمات</strong> اللي كيتم حجزها عبر المنصة. الصنايعي كيشد 100% من الفلوس اللي كيخلصو الزبون. يمكن لجاك.ما فالمستقبل تقدم <strong>خدمات إضافية مؤدى عنها اختيارياً</strong> (إعلانات مميزة، شارة التوثيق، باقات leads). أي خدمة مؤدى عنها غادي تكون واضحة الثمن قبل ما تشتريها.</p>
+    <h2>4. نموذج "بدون عمولة"</h2>
+    <p>لا يقتطع المُشغِّل أيّة عمولة من الخدمات المُنجَزة عبر المنصّة. يحتفظ الحرفي بكامل المبلغ الذي يدفعه الزبون. يجوز للمُشغِّل أن يُقدّم مستقبلاً خدمات اختيارية مؤدّى عنها (إعلانات مميّزة، شارة توثيق، حزم اتصال) سيُعلَن عن أثمنتها قبل أيّ اقتناء.</p>
 
     <h2>5. التزامات الزبون</h2>
-    <p>ملي كتطلب صنايعي ولا كتحجز خدمة عبر جاك.ما، كتلتزم ب:</p>
     <ul>
-      <li>تعطي وصف صحيح للخدمة، الموقع، الصور، والتفاصيل.</li>
-      <li>تخلص الصنايعي الثمن المتفق عليه، فلوس ولا تحويل ولا أي طريقة اتفقتو عليها، بعد ما تكمل الخدمة (أو حسب الاتفاق على التسبيق).</li>
-      <li>تحترم الصنايعي. التحرش، التمييز، التهديد ولا الكلام البذيء كيؤدي مباشرة لحذف الحساب.</li>
-      <li>ما تستعملش المنصة باش تجمع devis بلا نية حقيقية، ولا تجمع أرقام للأغراض التجارية.</li>
+      <li>تقديم وصف صادق للخدمة المطلوبة، الموقع، الصور والتفاصيل.</li>
+      <li>أداء الثمن المتّفق عليه للحرفي، نقداً أو بأيّ وسيلة يتّفقان عليها، بعد إنجاز الخدمة أو وفق ما اتُّفق عليه من تسبيق.</li>
+      <li>معاملة الحرفي باحترام. يُؤدّي أيّ تحرّش أو تمييز أو تهديد إلى إنهاء الحساب فوراً.</li>
+      <li>عدم استعمال المنصّة لطلب عروض دون نيّة حقيقية، أو لجمع بيانات اتصال لأغراض تجارية أخرى.</li>
     </ul>
 
-    <h2>6. التزامات الصنايعي</h2>
-    <p>إلى كنت كتسجل بحالك صنايعي، كتلتزم ب:</p>
+    <h2>6. التزامات الحرفي</h2>
     <ul>
-      <li>تعطي معلومات صحيحة على حرفتك، خبرتك، الموقع، والأثمنة.</li>
-      <li>تتوفر فيك الرخص والتأمينات والتسجيلات اللي كيتطلبها القانون المغربي لنشاطك، وتحترم الالتزامات الصحية، الأمنية والضريبية.</li>
-      <li>تعطي أثمنة عادلة كتعكس حجم الخدمة الحقيقي. <strong>الشناقة، الزيادة المتعمدة فالثمن، أو الـ "bait-and-switch" ممنوعة وكتأدي لحذف نهائي من المنصة.</strong></li>
-      <li>تحترم الحجوزات اللي قبلتيها، توصل فالوقت المتفق عليه، وتواصل بسرعة إلى وقعت أي مشكلة.</li>
-      <li>تخدم بمستوى احترافي وتصلح أي عيب فالخدمة فوقت معقول إلى كانت شكاية مشروعة.</li>
-      <li>تعطي وصول للزبون إلى طلبو، وتتكفل بالضرائب وCNSS بنفسك. جاك.ما <strong>ما كتخصم</strong> أي ضريبة فبلاصتك.</li>
+      <li>تقديم معلومات صحيحة عن الحرفة، الخبرة، نطاق التدخّل والأثمنة.</li>
+      <li>التوفّر على جميع الرخص والتأمينات والتسجيلات اللازمة قانوناً، واحترام الالتزامات الصحية والأمنية والجبائية.</li>
+      <li>اعتماد أثمنة عادلة تعكس حجم الخدمة الفعلي. <strong>تُمنع منعاً باتاً الزيادة المتعمَّدة في الثمن (المعروفة بـ"الشناقة") والممارسات التضليلية</strong>؛ ويُؤدّي إثباتها إلى الحذف النهائي من المنصّة.</li>
+      <li>احترام الحجوزات المقبولة، الحضور في الوقت المتّفق عليه، والإخبار عند الاضطرار للتأجيل أو الإلغاء.</li>
+      <li>إنجاز الخدمة وفق قواعد المهنة، وتدارك أيّ عيب مشروع في أجل معقول.</li>
+      <li>إصدار وصل عند الطلب، وتحمّل التزاماته الجبائية والاجتماعية بنفسه؛ لا يقتطع المُشغِّل أيّ ضريبة في محلّه.</li>
     </ul>
 
-    <h2>7. التقييمات والآراء والمحتوى</h2>
+    <h2>7. التقييمات والمحتوى المنشور — مسطرة الإخطار والسحب</h2>
     <ul>
-      <li>الزبناء يقدرو يقيمو الصنايعي ويكتبو رأيهم بعد الخدمة. التقييمات خاصها تعكس تجربة حقيقية.</li>
-      <li>التقييمات المزورة، المؤداة، الانتقامية، والمتبادلة ممنوعة.</li>
-      <li>نتا كتحتفظ بملكية المحتوى ديالك (الصور، النصوص، التقييمات)، ولكن كتعطي جاك.ما <strong>ترخيص غير حصري، مجاني، وعالمي</strong> باش تستعملو فتشغيل وتطوير المنصة.</li>
-      <li>ممنوع تنشر محتوى غير قانوني، مسيء، فاحش، أو فيه معطيات شخصية ديال ناس آخرين بلا إذنهم.</li>
+      <li>للزبون أن يقيّم الحرفي ويُدلي برأيه بعد الخدمة. يجب أن تعكس التقييمات تجربةً حقيقية.</li>
+      <li>تُمنع التقييمات المزوّرة، المؤدَّى عنها، الانتقامية، والمتبادَلة.</li>
+      <li>يحتفظ المستعمل بملكية المحتوى الذي ينشره (صور، نصوص، تقييمات)، ويمنح المُشغِّل <strong>ترخيصاً غير حصري ومجانياً وعالمياً</strong> لاستضافته وعرضه واستعماله في تشغيل المنصّة وترقيتها.</li>
+      <li>يُمنع نشر أيّ محتوى مُخالف للقانون أو مُشين أو مَن شأنه أن يمسّ شرف الغير أو يكشف معطياته الشخصية دون إذنه.</li>
+      <li><strong>مسطرة الإخطار والسحب:</strong> يجوز لكلّ متضرّر إخطار المُشغِّل عبر <a href="mailto:support@jak.ma">support@jak.ma</a> بإرسال رابط المحتوى المُعترَض عليه ومبرّر الاعتراض. يلتزم المُشغِّل بدراسة الإخطار في أجل أقصاه <strong>سبعة أيّام عمل</strong>، ويُعلِم المُخطِر بالقرار المتّخَذ. هذه المسطرة هي القناة الرسمية لتطبيق القانون 88-13 المتعلّق بالصحافة والنشر.</li>
     </ul>
 
-    <h2>8. الحجوزات، الإلغاء، والنزاعات</h2>
+    <h2>8. الحجز، الإلغاء وفضّ النزاعات</h2>
     <ul>
-      <li>الحجز هو اتفاق بين الزبون والصنايعي، ماشي مع جاك.ما.</li>
-      <li>شروط الإلغاء، الاسترجاع، والإصلاح كتكون بيناتكم. كنوصيوكم تكتبوها فالشات قبل ما يبدا العمل.</li>
-      <li>جاك.ما يمكن ليها بشكل اختياري تساعد فحل النزاعات، ولكن ماشي محكم وما كتضمنش أي نتيجة. جاك.ما يمكن تستعمل تاريخ النزاعات باش تقرر شكون يبقى فالمنصة.</li>
+      <li>الحجز عَقد بين الزبون والحرفي، ولا يشمل المُشغِّل.</li>
+      <li>تُحدَّد شروط الإلغاء والاسترجاع والإصلاح بين الطرفين، ويُوصى بإثباتها كتابةً عبر محادثة المنصّة قبل بداية التنفيذ.</li>
+      <li>يجوز للمُشغِّل، تطوّعاً ودون إلزام، أن يُيسّر تسوية ودّية للنزاع، غير أنّه ليس محكِّماً ولا يضمن نتيجةً معيّنة.</li>
     </ul>
+
+    <h2>8 مكرّر. حقّ التراجع للمستهلك (طبقاً للقانون 31-08)</h2>
+    <p>طبقاً لأحكام المادتين 36 و37 من القانون رقم 31-08 القاضي بتحديد تدابير لحماية المستهلك، يتوفّر المستهلك المتعاقد عن بُعد على أجَل <strong>سبعة (7) أيّام</strong> لممارسة حقّ التراجع دون تبرير ودون أداء غرامة.</p>
+    <p>غير أنّ هذا الحقّ <strong>يسقط بمجرّد شروع الحرفي في تنفيذ الخدمة</strong> بناءً على طلب صريح ومُسبَق من المستهلك. يُمارَس حقّ التراجع بإخطار الحرفي مباشرةً (إذ المُشغِّل ليس طرفاً في العقد)، وللمستهلك أن يطلب من المُشغِّل المساعدة في هذا الإخطار.</p>
 
     <h2>9. الأداء</h2>
-    <p>جاك.ما <strong>ما كتعالجش</strong> الفلوس بين الزبون والصنايعي حالياً. الأداء كيكون مباشرة بيناتهم (نقداً، تحويل، أو أي طريقة اتفقو عليها). إلى دارت جاك.ما فالمستقبل أداء داخل التطبيق، غادي تكون شروط أداء مستقلة وغادي يتطلب موافقتك قبل الاستعمال.</p>
+    <p>لا تتولّى المنصّة حالياً معالجة الأداء بين الزبون والحرفي. يتمّ الأداء مباشرةً بين الطرفين (نقداً، تحويلاً، أو بأيّ وسيلة يتّفقان عليها). في حال إدراج نظام أداء داخل التطبيق مستقبلاً، ستُطبَّق عليه شروط أداء خاصّة يجب قبولها قبل الاستعمال.</p>
 
-    <h2>10. الاستخدامات الممنوعة</h2>
-    <p>ممنوع:</p>
+    <h2>10. الاستخدامات المحظورة</h2>
     <ul>
-      <li>تستعمل المنصة لأي غرض غير قانوني أو يخالف القانون المغربي.</li>
-      <li>تتجاوز ولا تعطل ميزات الأمان أو حدود الاستخدام.</li>
-      <li>تجمع، تستخرج، أو تستنسخ المحتوى، المعطيات، أو الاتصالات بشكل آلي (scraping).</li>
-      <li>تعكس هندسة الكود (reverse-engineering) أو تحاول تستخرج الكود المصدري.</li>
-      <li>تستعمل bots أو سكريبتات باش تخلق حسابات، إعلانات، تقييمات، أو حجوزات.</li>
-      <li>تستعمل المعطيات اللي خديتيها من جاك.ما باش تطلق منصة منافسة.</li>
+      <li>استعمال المنصّة لغرض مخالف للقانون المغربي.</li>
+      <li>تجاوز أو تعطيل تدابير الأمن أو حدود الاستعمال.</li>
+      <li>الاستخراج الآلي للمحتوى أو بيانات المستعملين (Scraping).</li>
+      <li>الهندسة العكسية أو محاولة استخراج الكود المصدري.</li>
+      <li>استعمال آليات مؤتمتة (Bots) لإنشاء حسابات أو إعلانات أو تقييمات أو حجوزات.</li>
+      <li>استعمال البيانات المُستقاة من المنصّة لإطلاق منصّة منافسة.</li>
     </ul>
 
     <h2>11. الملكية الفكرية</h2>
-    <p>المنصة — البرمجة، التصميم، العلامة "جاك.ما"، والمحتوى اللي خلقاتو جاك.ما — مملوكة لجاك.ما ومحمية بقانون الملكية الفكرية. أي شي فهاد الشروط ما كينقل ليك الملكية. كتقدر تستعمل المنصة فقط فالحدود اللي مسموح بيها هنا.</p>
+    <p>تخضع المنصّة، بما فيها برمجياتها وتصاميمها وعلامتها التجارية "جاك.ما" والمحتوى الذي ينتجه المُشغِّل، لحماية تشريعات الملكية الفكرية لا سيّما القانون رقم 17-97. لا تتضمّن هذه الشروط أيّ نقل لهذه الحقوق إلى المستعمل.</p>
 
-    <h2>12. إخلاء المسؤولية</h2>
+    <h2>12. إخلاء الضمان</h2>
     <ul>
-      <li>المنصة كتقدم "كما هي" و"حسب توفرها". جاك.ما <strong>ما كتضمنش</strong> أن المنصة غادي تخدم بلا انقطاع، بلا أخطاء، أو آمنة 100%.</li>
-      <li>جاك.ما <strong>ما كتضمنش</strong> جودة، أمان، قانونية، أو وقت أداء الخدمات اللي كيقدمها الصنايعية.</li>
-      <li>الإعلانات والتقييمات والمعلومات اللي عند الصنايعية كتجي منهم؛ جاك.ما كدير تحقق محدود وما كتضمنش هوية، شهادات، أو تأمين الصنايعي.</li>
-      <li>كتستعمل المنصة وكتتواصل مع المستعملين الآخرين على مسؤوليتك الخاصة.</li>
+      <li>تُقدَّم المنصّة "كما هي" و"حسب توفّرها"، دون ضمان للعمل المتواصل أو الخالي من الأخطاء.</li>
+      <li>لا يضمن المُشغِّل جودة أو سلامة أو مشروعية أو مواعيد الخدمات المُنجَزة من قِبَل الحرفيّين.</li>
+      <li>الإعلانات والتقييمات والمعطيات الواردة من الحرفيّين صادرة عنهم؛ لا يجري المُشغِّل سوى تحقّق محدود، ولا يضمن هوية الحرفي ولا شهاداته ولا تأمينه.</li>
     </ul>
 
     <h2>13. حدود المسؤولية</h2>
-    <p>إلى أقصى حد يسمح بيه القانون المغربي، جاك.ما، المسير، والشركاء <strong>ما كيتحملوش المسؤولية</strong> على:</p>
+    <p>في أقصى ما يسمح به القانون المغربي، لا يتحمّل المُشغِّل المسؤولية عن:</p>
     <ul>
-      <li>الأضرار غير المباشرة، العرضية، الخاصة، أو التبعية.</li>
-      <li>فقدان الربح، المعطيات، السمعة، أو الفرص التجارية.</li>
-      <li>الأضرار المادية، الإصابات الشخصية، أو الخسائر المالية الناتجة عن الصنايعي، الزبون، أو أي طرف ثالث.</li>
+      <li>الأضرار غير المباشرة أو العَرَضية أو التبعية.</li>
+      <li>فوات الربح أو فقدان البيانات أو السمعة أو الفرص التجارية.</li>
+      <li>الأضرار المادية أو الجسدية أو المالية الناجمة عن الحرفي أو الزبون أو الغير.</li>
     </ul>
-    <p>فالحالات اللي ما يمكنش استبعاد المسؤولية فيها، الحد الأقصى للمسؤولية الإجمالية لجاك.ما تجاه أي مستعمل خلال 12 شهر هو الأكبر من: (أ) المبلغ اللي خلصو هاد المستعمل لجاك.ما خلال هاد المدة، أو (ب) <strong>500 درهم مغربي</strong>.</p>
+    <p>في الحالات التي يتعذّر فيها استبعاد المسؤولية، يُحدَّد سقف المسؤولية الإجمالية للمُشغِّل تجاه أيّ مستعمل خلال 12 شهراً بالأعلى من: (أ) المبلغ المؤدَّى من قِبَل ذلك المستعمل للمُشغِّل خلال هذه المدّة، أو (ب) <strong>500 درهم مغربي</strong>.</p>
+    <div class="consumer">
+      <strong>تنبيه — حماية المستهلك:</strong> لا يُحتجّ بسقف المسؤولية المنصوص عليه أعلاه في مواجهة المستعمل الذي يتصرّف بصفته <strong>مستهلكاً غير مهني</strong>؛ إذ تبقى أحكام القانون 31-08 المتعلّق بحماية المستهلك سارية في حقّه دون انتقاص.
+    </div>
+
+    <h2>13 مكرّر. حقوق المستهلك (طبقاً للقانون 31-08)</h2>
+    <p>للمستعمل الذي يتصرّف بصفته مستهلكاً غير مهني، الحقوق التالية مكفولة بنصّ القانون رقم 31-08 ولا يجوز التنازل عنها:</p>
+    <ul>
+      <li>الحقّ في إعلام صحيح وواضح ومسبق حول الخدمة قبل أيّ التزام.</li>
+      <li>الحقّ في التراجع داخل أجل سبعة أيّام كما هو مبيَّن في القسم 8 مكرّر.</li>
+      <li>الحقّ في عرض النزاع على <strong>وسيط استهلاكي</strong> معتمد قبل اللجوء إلى القضاء.</li>
+      <li>الحقّ في رفع الدعوى أمام محكمة <strong>موطنه</strong>، رغم بند الاختصاص المنصوص عليه في القسم 18.</li>
+      <li>اعتبار كلّ شرط يُحدِث اختلالاً ظاهراً بين حقوق وواجبات الطرفَين <strong>شرطاً تعسّفياً</strong> غير ملزم في حقّه (المواد 15 إلى 18 من القانون 31-08).</li>
+    </ul>
 
     <h2>14. التعويض</h2>
-    <p>كتلتزم بأن تعوض جاك.ما، المسير، الموظفين، والشركاء على أي مطالبة، خسارة أو نفقات (بما فيها الأتعاب القانونية المعقولة) ناتجة عن استعمالك للمنصة، خرقك لهاد الشروط، المحتوى ديالك، أو تواصلك مع مستعمل آخر.</p>
+    <p>يلتزم المستعمل بأن يُعوّض المُشغِّل والعاملين معه عن كلّ مطالبة أو خسارة أو مصاريف (بما في ذلك الأتعاب القضائية المعقولة) ترتّبت عن استعماله للمنصّة أو خرقه لهذه الشروط أو محتواه أو تواصله مع مستعمل آخر.</p>
+    <div class="consumer">
+      <strong>تنبيه — حماية المستهلك:</strong> لا يُحتجّ بشرط التعويض المنصوص عليه أعلاه في مواجهة المستعمل الذي يتصرّف بصفته مستهلكاً غير مهني، إلاّ في حدود ما يسمح به القانون المغربي.
+    </div>
 
     <h2>15. حماية المعطيات الشخصية</h2>
-    <p>استعمال المنصة كيخضع كذلك ل<strong>سياسة الخصوصية ديال جاك.ما</strong>، اللي كتشرح كيفاش كنجمعو ونستعملو ونتقاسمو المعطيات الشخصية، بما فيها المعطيات اللي كيجمعها Google Analytics و Microsoft Clarity و Google Search Console و Bing Webmaster Tools. هاد المعالجة كتخضع لمقتضيات القانون المغربي رقم <strong>09-08</strong> المتعلق بحماية الأشخاص الذاتيين تجاه معالجة المعطيات ذات الطابع الشخصي.</p>
-
-    <h2>16. التوقيف والإنهاء</h2>
-    <p>جاك.ما يمكن ليها توقف أو تحذف حسابك، تحيد إعلانات، أو تقيد ميزات حسب تقديرها الخاص، خاصة فحالات:</p>
+    <p>يخضع كلّ معالجة للمعطيات الشخصية في إطار المنصّة لأحكام <strong>القانون رقم 09-08</strong> المتعلّق بحماية الأشخاص الذاتيّين تجاه معالجة المعطيات ذات الطابع الشخصي، تحت إشراف <strong>اللجنة الوطنية لمراقبة حماية المعطيات ذات الطابع الشخصي (CNDP)</strong>.</p>
+    <p><strong>التصريح:</strong> تصريح المعالجة لدى CNDP <em>في طور الإعداد</em>. يلتزم المُشغِّل بإنجاز هذا التصريح قبل أيّ توسّع للمعالجة.</p>
+    <p><strong>المعطيات المجمَّعة:</strong> الموقع الجغرافي (في حال موافقة المستعمل)، عنوان IP، نوع المتصفّح، الصفحات المُزارة، تاريخ ووقت الزيارة، كلمات البحث.</p>
+    <p><strong>الموقع الجغرافي — موافقة صريحة:</strong> لا يُجمع الموقع الجغرافي إلاّ بضغط المستعمل على زرّ "سمح بالموقع"، وهو إقرار صريح ومُسبَق بالموافقة طبقاً للمادة 4 من القانون 09-08. يُستعمل الموقع <strong>حصرياً</strong> لإيجاد الحرفيّين الأقرب جغرافياً، <strong>ولا يُحفَظ على خوادم المُشغِّل</strong>؛ يبقى داخل جلسة المتصفّح وحدها. يجوز للمستعمل سحب موافقته في أيّ وقت من إعدادات المتصفّح.</p>
+    <p><strong>المتعاقدون من الباطن خارج المغرب:</strong> تُحال بعض المعطيات التقنية (إحصاءات الاستعمال، تسجيل الجلسات بشكل مجهول) إلى المتعاقدَين التاليَّيْن:</p>
     <ul>
-      <li>خرق هاد الشروط.</li>
-      <li>ثبوت شناقة فالأثمنة، تقييمات مزورة، أو احتيال.</li>
-      <li>شكايات متكررة من المستعملين الآخرين.</li>
-      <li>متطلب قانوني أو حكم قضائي.</li>
+      <li><strong>Google LLC</strong> (Google Analytics) — الولايات المتحدة الأمريكية.</li>
+      <li><strong>Microsoft Corporation</strong> (Microsoft Clarity) — الولايات المتحدة الأمريكية.</li>
     </ul>
-    <p>كتقدر تحذف حسابك فأي وقت عبر مراسلة <a href="mailto:support@jak.ma">support@jak.ma</a>. حذف الحساب ما كيمحيش السجلات اللي القانون كيلزم جاك.ما بحفظها.</p>
+    <p>تجري هذه الإحالات على أساس موافقة المستعمل المسبقة طبقاً للمادتين 43 و44 من القانون 09-08. يتوفّر المستعمل في كلّ حين على حقّ الوصول والتصحيح والاعتراض والحذف، ويُمارسها عبر <a href="mailto:support@jak.ma">support@jak.ma</a>. كما يحقّ له تقديم شكاية لدى CNDP (<a href="https://www.cndp.ma" target="_blank" rel="noopener">www.cndp.ma</a>).</p>
+
+    <h2>16. التعليق والإنهاء</h2>
+    <p>يجوز للمُشغِّل تعليق الحساب أو إنهاؤه أو سحب الإعلانات أو تقييد بعض الميزات وفق تقديره، لا سيّما في حالات:</p>
+    <ul>
+      <li>خرق هذه الشروط.</li>
+      <li>ثبوت ممارسة "الشناقة" أو نشر تقييمات مزوّرة أو احتيال.</li>
+      <li>تكرار الشكايات من باقي المستعملين.</li>
+      <li>تنفيذ التزام قانوني أو قرار قضائي.</li>
+    </ul>
+    <p>للمستعمل أن يُغلق حسابه في أيّ وقت عبر <a href="mailto:support@jak.ma">support@jak.ma</a>؛ ولا يمسّ الإغلاق السجلات التي يُلزِم القانون المُشغِّل بحفظها.</p>
 
     <h2>17. تعديل الشروط</h2>
-    <p>جاك.ما قادرة تحدث هاد الشروط من وقت لآخر. التغييرات الجوهرية غادي تتعلن فالمنصة و/أو بالإيميل قبل <strong>14 يوم</strong> من بدء سريانها. الاستمرار فالاستعمال بعد التاريخ المحدد كيعني القبول بالشروط الجديدة.</p>
+    <p>يجوز للمُشغِّل تحديث هذه الشروط من حين لآخر. يُعلَن عن التعديلات الجوهرية على المنصّة و/أو بالبريد الإلكتروني قبل <strong>أربعة عشر (14) يوماً</strong> من سريانها. استمرار الاستعمال بعد تاريخ السريان يُعتبر قبولاً للنسخة المُحدَّثة.</p>
 
-    <h2>18. القانون المطبق والاختصاص القضائي</h2>
-    <p>هاد الشروط خاضعة لقوانين <strong>المملكة المغربية</strong>. أي نزاع ناشئ عن هاد الشروط أو عن المنصة كيخضع للاختصاص الحصري للمحاكم المختصة بمدينة <strong>الدار البيضاء</strong>، إلا إلا كان القانون الخاص بحماية المستهلك كيعطي اختصاص لمحكمة أخرى.</p>
+    <h2>18. القانون المطبَّق والاختصاص القضائي</h2>
+    <p>تخضع هذه الشروط للقانون المغربي. يُعقَد الاختصاص القضائي لمحاكم <strong>الدار البيضاء</strong> دون سواها للنظر في كلّ نزاع ناشئ عن هذه الشروط أو عن المنصّة.</p>
+    <div class="consumer">
+      <strong>تنبيه — حماية المستهلك:</strong> لا يُحتجّ ببند الاختصاص الحصري المذكور أعلاه في مواجهة المستعمل الذي يتصرّف بصفته مستهلكاً غير مهني؛ إذ يحقّ له رفع الدعوى أمام محكمة <strong>موطنه</strong>، طبقاً للقواعد العامّة للاختصاص القضائي وللقانون 31-08.
+    </div>
 
-    <h2>19. أحكام عامة</h2>
+    <h2>19. القوّة القاهرة (طبقاً للفصلَين 268 و269 من قانون الالتزامات والعقود)</h2>
+    <p>لا يُسأل المُشغِّل عن عدم تنفيذ أيّ التزام إذا كان مردُّ ذلك إلى قوّة قاهرة أو حادث فُجائي، بما في ذلك على سبيل المثال لا الحصر: انقطاع شبكة الإنترنت أو خدمات الاستضافة، الحريق، الفيضانات، الجوائح الصحّية، النزاعات المسلّحة، قرارات السلطات العمومية، أو أيّ سبب آخر خارج عن إرادته. تُعلَّق الالتزامات طيلة هذه المدّة، ولا يترتّب عنها تعويض.</p>
+
+    <h2>20. أحكام عامّة</h2>
     <ul>
-      <li>إلى تبين أن أي بند من هاد الشروط غير قابل للتطبيق، باقي البنود كتبقى سارية.</li>
-      <li>عدم تطبيق جاك.ما لحق من حقوقها ما كيعتبرش تنازل.</li>
-      <li>ما تقدرش تحول حقوقك حسب هاد الشروط بلا موافقة كتابية مسبقة من جاك.ما. جاك.ما يمكن تحول هاد الشروط فحالة اندماج أو بيع.</li>
-      <li>هاد الشروط، مع سياسة الخصوصية، كتشكل الاتفاق الكامل بينك وبين جاك.ما حول المنصة.</li>
+      <li>إذا تبيّن أنّ بنداً من هذه الشروط غير قابل للتطبيق، تبقى باقي البنود سارية المفعول.</li>
+      <li>عدم ممارسة المُشغِّل لحقّ من حقوقه لا يُعدّ تنازلاً عنه.</li>
+      <li>لا يجوز للمستعمل تفويت حقوقه دون موافقة كتابية مسبقة من المُشغِّل.</li>
+      <li>تُشكّل هذه الشروط، مع سياسة الخصوصية، مجموع الاتفاق بين المستعمل والمُشغِّل بخصوص المنصّة.</li>
     </ul>
 
-    <h2>20. التواصل</h2>
-    <p>أسئلة، شكايات، طلبات حذف، أو إشعارات قانونية:</p>
+    <h2>21. التواصل</h2>
     <ul>
-      <li><strong>الإيميل:</strong> <a href="mailto:support@jak.ma">support@jak.ma</a></li>
-      <li><strong>المسير:</strong> سامي العقاد، المغرب</li>
+      <li><strong>البريد الإلكتروني:</strong> <a href="mailto:support@jak.ma">support@jak.ma</a></li>
+      <li><strong>الجهة المُشغِّلة:</strong> شخص ذاتي خاضع للقانون المغربي.</li>
     </ul>
 
     <div class="disclaimer">
-      هاد الوثيقة هي نموذج معد لمنصة جاك.ما وخاصها تتمراجع من طرف محامي مغربي مختص قبل نشرها رسمياً. ما كتشكلش استشارة قانونية.
+      هذه الوثيقة نموذج أُعدّ لمنصّة جاك.ما وتستلزم مراجعة من قِبَل محامٍ مغربي معتمد قبل أيّ نشر تعاقدي رسمي. لا تُشكّل استشارة قانونية.
     </div>
   </div>
 
-  <!-- ============ FRENCH ============ -->
+  <!-- ============================================================
+       FRENCH — co-equal authoritative version
+       ============================================================ -->
   <div class="lang-block" id="lang-fr" dir="ltr">
     <h1>Conditions Générales d'Utilisation de jak.ma</h1>
     <p class="updated">Dernière mise à jour : 26 mai 2026</p>
 
-    <p>Bienvenue sur <strong>jak.ma</strong>. Les présentes Conditions Générales d'Utilisation (« CGU ») régissent l'accès et l'utilisation du site web, des interfaces mobiles et de tous les services associés (collectivement, la « Plateforme »). En créant un compte, en publiant une annonce ou en réservant un service via jak.ma, vous acceptez les présentes CGU. Si vous n'y consentez pas, n'utilisez pas la Plateforme.</p>
+    <div class="auth-notice">
+      <strong>Texte de référence :</strong> les versions <strong>arabe (fus-ḥā)</strong> et <strong>française</strong> font également foi sur le plan juridique. La version anglaise est une traduction informative. Le résumé en darija marocaine est destiné à faciliter la compréhension et n'a pas de valeur contractuelle.
+    </div>
 
-    <h2>1. Présentation de jak.ma</h2>
-    <p>jak.ma est une <strong>plateforme de mise en relation sans commission</strong> qui connecte les clients au Maroc avec des artisans indépendants (« Artisans ») — plombiers, électriciens, peintres, menuisiers, agents de nettoyage, déménageurs, etc. jak.ma <strong>n'est pas partie</strong> au contrat conclu entre un client et un Artisan, n'emploie pas les Artisans et n'exécute pas les services elle-même. jak.ma facilite uniquement la mise en relation.</p>
+    <h2>1. Parties et objet de la Plateforme</h2>
+    <p>« jak.ma » est une plateforme électronique exploitée par une <strong>personne physique de droit marocain</strong> (ci-après « l'Exploitant »). Elle met en relation des utilisateurs-clients avec des artisans indépendants (« Artisans ») exerçant dans les métiers de plomberie, électricité, peinture, menuiserie, nettoyage, déménagement et apparentés.</p>
+    <p>L'Exploitant <strong>n'est pas partie</strong> au contrat de service conclu entre un client et un Artisan. Il n'emploie pas les Artisans et n'exécute pas les prestations lui-même. Le rôle de la Plateforme se limite à la mise en relation technique.</p>
+    <p>Contact légal et administratif : <a href="mailto:support@jak.ma">support@jak.ma</a>.</p>
 
     <h2>2. Conditions d'éligibilité</h2>
-    <p>Vous devez être âgé d'au moins 18 ans et disposer de la capacité juridique pour contracter selon le droit marocain. Les Artisans doivent en outre disposer du droit légal d'exercer leur métier au Maroc (immatriculation CNSS, statut d'auto-entrepreneur, licences professionnelles, le cas échéant).</p>
+    <p>L'utilisateur doit avoir atteint l'âge légal (18 ans révolus) et disposer de la capacité civile selon le droit marocain. L'Artisan doit en outre être autorisé légalement à exercer son métier au Maroc (immatriculation CNSS le cas échéant, statut d'auto-entrepreneur au sens de la loi 114-13, ou licences professionnelles applicables).</p>
 
     <h2>3. Compte utilisateur</h2>
     <ul>
-      <li>Vous vous engagez à fournir des informations exactes et à jour lors de la création de votre compte.</li>
-      <li>Vous êtes responsable de toute activité réalisée depuis votre compte et de la confidentialité de vos identifiants.</li>
-      <li>Un compte par personne physique ou morale. Toute usurpation d'identité ou multiplication de comptes pour manipuler les évaluations est interdite.</li>
-      <li>jak.ma peut suspendre ou supprimer tout compte contrevenant aux présentes CGU, avec ou sans préavis.</li>
+      <li>Fournir des informations exactes et à jour, et préserver la confidentialité des identifiants.</li>
+      <li>L'utilisateur est seul responsable des actions effectuées depuis son compte.</li>
+      <li>Un compte par personne ou entité. Toute usurpation d'identité ou multiplication de comptes pour manipuler les avis est prohibée.</li>
+      <li>L'Exploitant peut suspendre ou clôturer tout compte en cas de manquement, avec ou sans préavis.</li>
     </ul>
 
     <h2>4. Modèle sans commission</h2>
-    <p>jak.ma <strong>ne perçoit aucune commission</strong> sur les missions réalisées via la Plateforme. L'Artisan conserve 100% du montant payé par le client. jak.ma pourra à l'avenir proposer des <strong>fonctionnalités payantes optionnelles</strong> (annonces sponsorisées, badge de vérification, packs de leads). Tout service payant sera clairement tarifé avant souscription.</p>
+    <p>L'Exploitant ne perçoit aucune commission sur les missions réalisées via la Plateforme. L'Artisan conserve l'intégralité du prix réglé par le client. Des fonctionnalités optionnelles payantes (annonces sponsorisées, badge de vérification, packs de contact) pourront être introduites ultérieurement, à des tarifs clairement annoncés.</p>
 
     <h2>5. Obligations du client</h2>
-    <p>Lorsque vous réservez ou contactez un Artisan via jak.ma, vous vous engagez à :</p>
     <ul>
-      <li>Décrire la mission de manière sincère et fournir des informations exactes (lieu, photos, périmètre).</li>
-      <li>Régler à l'Artisan le prix convenu, en espèces ou par tout moyen accepté entre les parties, après exécution (ou selon les conditions d'acompte convenues hors plateforme).</li>
-      <li>Traiter les Artisans avec respect. Tout harcèlement, discrimination, menace ou propos abusif entraîne la suppression immédiate du compte.</li>
-      <li>Ne pas utiliser la Plateforme pour solliciter des devis sans intention de donner suite, ni pour collecter des coordonnées à des fins commerciales étrangères au service.</li>
+      <li>Décrire la mission de manière sincère ; fournir un lieu, des photos et un périmètre exacts.</li>
+      <li>Régler à l'Artisan le prix convenu, en espèces ou par tout autre moyen accepté, à l'issue de la prestation (ou selon acompte convenu).</li>
+      <li>Traiter les Artisans avec respect. Tout harcèlement, discrimination, menace ou propos abusif entraîne la clôture immédiate du compte.</li>
+      <li>Ne pas utiliser la Plateforme pour solliciter des devis sans intention réelle ni pour collecter des coordonnées à des fins commerciales étrangères.</li>
     </ul>
 
     <h2>6. Obligations de l'Artisan</h2>
-    <p>Si vous vous inscrivez en tant qu'Artisan, vous vous engagez à :</p>
     <ul>
-      <li>Fournir des informations exactes sur votre métier, votre expérience, votre zone d'intervention et vos tarifs.</li>
-      <li>Détenir l'ensemble des licences, assurances et immatriculations requises par la loi marocaine pour votre activité, et respecter vos obligations sanitaires, sécuritaires et fiscales.</li>
-      <li>Pratiquer des tarifs justes et représentatifs de la prestation réelle. <strong>La surfacturation délibérée, le bait-and-switch, ou toute pratique dite de « shnaq » est strictement interdite et entraîne l'exclusion définitive de la Plateforme.</strong></li>
-      <li>Honorer les réservations acceptées, intervenir dans la plage convenue, et communiquer rapidement en cas de retard ou d'annulation.</li>
-      <li>Exécuter les travaux conformément aux règles de l'art et corriger tout défaut légitimement signalé dans un délai raisonnable.</li>
-      <li>Émettre des reçus à la demande et assumer vos obligations fiscales et sociales. jak.ma <strong>ne pratique aucune retenue à la source</strong>.</li>
+      <li>Fournir des informations exactes sur son métier, son expérience, sa zone d'intervention et ses tarifs.</li>
+      <li>Détenir l'ensemble des licences, assurances et immatriculations requises par la loi marocaine, et respecter ses obligations sanitaires, sécuritaires et fiscales.</li>
+      <li>Pratiquer des tarifs justes et représentatifs de la prestation. <strong>La surfacturation délibérée (dite « shnaq ») et les pratiques trompeuses (bait-and-switch) sont strictement interdites</strong> et entraînent l'exclusion définitive.</li>
+      <li>Honorer les réservations acceptées, intervenir dans la plage convenue, et signaler tout report ou annulation.</li>
+      <li>Exécuter les travaux dans les règles de l'art et remédier à tout défaut légitimement signalé dans un délai raisonnable.</li>
+      <li>Émettre un reçu sur demande et assumer personnellement ses obligations fiscales et sociales. L'Exploitant n'opère aucune retenue à la source.</li>
     </ul>
 
-    <h2>7. Avis, notes et contenu utilisateur</h2>
+    <h2>7. Avis, contenus utilisateurs — procédure de notification et de retrait</h2>
     <ul>
-      <li>Les clients peuvent évaluer les Artisans à l'issue d'une mission. Les avis doivent refléter une expérience réelle.</li>
-      <li>Les faux avis, les avis rémunérés, les avis de représailles et l'échange d'avis sont interdits.</li>
-      <li>Vous conservez la propriété des contenus que vous publiez (photos, descriptions, avis) mais accordez à jak.ma une <strong>licence non exclusive, gratuite et mondiale</strong> pour les exploiter aux fins de fonctionnement et de promotion de la Plateforme.</li>
-      <li>Tout contenu illégal, diffamatoire, obscène, contrefaisant ou contenant des données personnelles de tiers sans consentement est interdit.</li>
+      <li>Le client peut évaluer l'Artisan à l'issue de la prestation. Les avis doivent refléter une expérience réelle.</li>
+      <li>Sont interdits : faux avis, avis rémunérés, avis de représailles et échanges d'avis.</li>
+      <li>L'utilisateur conserve la propriété de ses contenus (photos, textes, avis) et accorde à l'Exploitant une <strong>licence non exclusive, gratuite et mondiale</strong> pour l'hébergement, la diffusion et l'exploitation desdits contenus aux seules fins de fonctionnement et de promotion de la Plateforme.</li>
+      <li>Tout contenu illégal, diffamatoire, attentatoire à la vie privée d'un tiers ou contraire aux bonnes mœurs est prohibé.</li>
+      <li><strong>Notification et retrait :</strong> toute personne lésée peut notifier l'Exploitant à <a href="mailto:support@jak.ma">support@jak.ma</a> en indiquant l'URL du contenu litigieux et le motif. L'Exploitant s'engage à examiner la notification dans un délai maximal de <strong>sept (7) jours ouvrables</strong> et à informer le notifiant de sa décision. Cette procédure constitue le canal d'exercice de la loi 88-13 relative à la presse et l'édition.</li>
     </ul>
 
-    <h2>8. Réservations, annulations et litiges</h2>
+    <h2>8. Réservation, annulation et règlement des différends</h2>
     <ul>
-      <li>Une réservation est un contrat entre le client et l'Artisan, et non avec jak.ma.</li>
-      <li>Les conditions d'annulation, de remboursement et de reprise sont fixées entre les parties. Il est recommandé de les confirmer par écrit dans la messagerie de la Plateforme avant tout commencement d'exécution.</li>
-      <li>jak.ma peut, à sa discrétion, proposer une médiation informelle pour préserver la qualité de la marketplace mais <strong>n'est pas arbitre</strong> et ne garantit aucune issue.</li>
+      <li>La réservation est un contrat entre le client et l'Artisan ; l'Exploitant n'y est pas partie.</li>
+      <li>Les conditions d'annulation, de remboursement et de reprise sont définies entre les parties, de préférence par écrit via la messagerie de la Plateforme.</li>
+      <li>L'Exploitant peut, à titre purement volontaire, faciliter un règlement amiable, sans qualité d'arbitre et sans garantie de résultat.</li>
     </ul>
+
+    <h2>8 bis. Droit de rétractation du consommateur (loi 31-08)</h2>
+    <p>Conformément aux articles 36 et 37 de la loi n° 31-08 édictant des mesures de protection du consommateur, le consommateur ayant conclu un contrat à distance dispose d'un délai de <strong>sept (7) jours</strong> pour exercer son droit de rétractation, sans avoir à justifier de motifs ni à payer de pénalités.</p>
+    <p>Ce droit <strong>s'éteint dès que l'Artisan commence l'exécution</strong> de la prestation avec l'accord exprès et préalable du consommateur. Le droit de rétractation s'exerce par notification directe à l'Artisan (l'Exploitant n'étant pas partie au contrat) ; le consommateur peut solliciter l'assistance de l'Exploitant pour cette démarche.</p>
 
     <h2>9. Paiement</h2>
-    <p>jak.ma <strong>ne traite pas</strong> actuellement les paiements entre clients et Artisans. Le règlement intervient directement entre les parties (espèces, virement ou autre moyen convenu). En cas d'introduction future d'un paiement intégré, des conditions de paiement spécifiques s'appliqueront et devront être acceptées avant utilisation.</p>
+    <p>La Plateforme ne traite pas, à ce jour, les paiements entre clients et Artisans. Le règlement intervient directement entre les parties (espèces, virement ou autre moyen convenu). En cas d'introduction future d'un système de paiement intégré, des conditions de paiement spécifiques seront applicables et devront être acceptées préalablement.</p>
 
     <h2>10. Utilisations interdites</h2>
-    <p>Il est interdit de :</p>
     <ul>
-      <li>Utiliser la Plateforme à des fins illégales ou contraires à la loi marocaine.</li>
-      <li>Contourner, désactiver ou perturber les dispositifs de sécurité ou de limitation d'usage.</li>
-      <li>Extraire, collecter ou agréger massivement des contenus, données utilisateurs ou coordonnées (scraping).</li>
-      <li>Procéder à de l'ingénierie inverse ou tenter de récupérer le code source.</li>
-      <li>Utiliser des bots ou scripts pour créer des comptes, des annonces, des avis ou des réservations.</li>
-      <li>Exploiter les données issues de jak.ma pour lancer une plateforme concurrente.</li>
+      <li>Utilisation de la Plateforme à des fins illégales ou contraires à la loi marocaine.</li>
+      <li>Contournement ou désactivation des dispositifs de sécurité ou de limitation d'usage.</li>
+      <li>Extraction automatisée de contenus ou de données utilisateurs (scraping).</li>
+      <li>Ingénierie inverse ou tentative de récupération du code source.</li>
+      <li>Recours à des bots ou scripts pour créer des comptes, annonces, avis ou réservations.</li>
+      <li>Exploitation des données issues de jak.ma pour lancer une plateforme concurrente.</li>
     </ul>
 
     <h2>11. Propriété intellectuelle</h2>
-    <p>La Plateforme — logiciel, design, marque « jak.ma » et contenus créés par jak.ma — appartient à jak.ma et est protégée par les lois sur la propriété intellectuelle. Aucune disposition des présentes CGU n'emporte transfert de propriété. Vous ne pouvez utiliser la Plateforme que dans les limites expressément prévues.</p>
+    <p>La Plateforme — logiciel, design, marque « jak.ma » et contenus créés par l'Exploitant — est protégée notamment par la loi n° 17-97 relative à la protection de la propriété industrielle. Aucune disposition des présentes n'emporte transfert de droits à l'utilisateur.</p>
 
     <h2>12. Garanties et exclusions</h2>
     <ul>
-      <li>La Plateforme est fournie <strong>« en l'état »</strong> et <strong>« selon disponibilité »</strong>. jak.ma ne garantit pas un fonctionnement ininterrompu, sans erreur ni totalement sécurisé.</li>
-      <li>jak.ma ne garantit pas la qualité, la sécurité, la légalité ou la ponctualité des services exécutés par les Artisans.</li>
-      <li>Les annonces, avis et informations fournies par les Artisans émanent d'eux ; jak.ma n'effectue qu'une vérification limitée et ne garantit pas l'identité, les qualifications ou la couverture d'assurance d'un Artisan.</li>
-      <li>Vous utilisez la Plateforme et interagissez avec les autres utilisateurs à vos propres risques.</li>
+      <li>La Plateforme est fournie <strong>« en l'état »</strong> et <strong>« selon disponibilité »</strong>, sans garantie de fonctionnement ininterrompu ou exempt d'erreurs.</li>
+      <li>L'Exploitant ne garantit pas la qualité, la sécurité, la légalité ni la ponctualité des prestations exécutées par les Artisans.</li>
+      <li>Les annonces et avis émanent des utilisateurs ; l'Exploitant n'effectue qu'une vérification limitée et ne garantit ni l'identité, ni les qualifications, ni la couverture d'assurance d'un Artisan.</li>
     </ul>
 
     <h2>13. Limitation de responsabilité</h2>
-    <p>Dans toute la mesure permise par le droit marocain, jak.ma, son exploitant et ses affiliés <strong>ne sauraient être tenus responsables</strong> de :</p>
+    <p>Dans toute la mesure permise par le droit marocain, l'Exploitant n'est pas responsable de :</p>
     <ul>
-      <li>Dommages indirects, accessoires, spéciaux, consécutifs ou punitifs.</li>
+      <li>Dommages indirects, accessoires ou consécutifs.</li>
       <li>Perte de profit, de données, de réputation ou d'opportunité commerciale.</li>
-      <li>Dommages matériels, corporels ou pertes financières causés par un Artisan, un client ou un tiers.</li>
+      <li>Dommages matériels, corporels ou financiers causés par un Artisan, un client ou un tiers.</li>
     </ul>
-    <p>Lorsque la responsabilité ne peut être exclue par la loi, la responsabilité totale cumulée de jak.ma envers tout utilisateur, sur une période de 12 mois, est limitée au plus élevé des deux montants suivants : (a) les sommes versées par cet utilisateur à jak.ma au titre de fonctionnalités payantes sur la période, ou (b) <strong>500 MAD</strong>.</p>
+    <p>Lorsque la responsabilité ne peut être exclue par la loi, la responsabilité totale cumulée de l'Exploitant envers tout utilisateur, sur 12 mois, est limitée au plus élevé de : (a) les sommes versées par cet utilisateur à l'Exploitant sur la période, ou (b) <strong>500 MAD</strong>.</p>
+    <div class="consumer">
+      <strong>Protection du consommateur :</strong> le plafond ci-dessus n'est pas opposable à l'utilisateur agissant en qualité de <strong>consommateur non-professionnel</strong>. Les dispositions impératives de la loi 31-08 lui restent intégralement applicables.
+    </div>
+
+    <h2>13 bis. Droits du consommateur (loi 31-08)</h2>
+    <p>Pour l'utilisateur agissant en qualité de consommateur non-professionnel, les droits suivants sont garantis par la loi n° 31-08 et ne sont pas susceptibles de renonciation :</p>
+    <ul>
+      <li>Droit à une information exacte, claire et préalable avant tout engagement.</li>
+      <li>Droit de rétractation dans un délai de sept jours (article 8 bis ci-dessus).</li>
+      <li>Droit de soumettre tout litige à un <strong>médiateur de la consommation</strong> agréé avant tout recours judiciaire.</li>
+      <li>Droit d'agir devant le tribunal de son <strong>domicile</strong>, nonobstant la clause d'attribution de l'article 18.</li>
+      <li>Toute clause créant un déséquilibre significatif entre les droits et obligations des parties est réputée <strong>clause abusive</strong> et non-écrite à l'égard du consommateur (articles 15 à 18 de la loi 31-08).</li>
+    </ul>
 
     <h2>14. Indemnisation</h2>
-    <p>Vous vous engagez à indemniser jak.ma, son exploitant, ses salariés et partenaires de toute réclamation, perte ou frais (y compris les frais de justice raisonnables) découlant de votre utilisation de la Plateforme, de votre manquement aux CGU, de vos contenus ou de vos interactions avec un autre utilisateur.</p>
+    <p>L'utilisateur s'engage à indemniser l'Exploitant de toute réclamation, perte ou frais (y compris frais de justice raisonnables) résultant de l'utilisation de la Plateforme, du non-respect des présentes, de ses contenus ou de ses interactions.</p>
+    <div class="consumer">
+      <strong>Protection du consommateur :</strong> la clause d'indemnisation ci-dessus n'est opposable à l'utilisateur consommateur non-professionnel que dans les limites permises par le droit marocain.
+    </div>
 
-    <h2>15. Données personnelles</h2>
-    <p>Votre utilisation de la Plateforme est également régie par la <strong>Politique de confidentialité jak.ma</strong>, qui décrit la collecte, l'utilisation et le partage de vos données personnelles, y compris via Google Analytics, Microsoft Clarity, Google Search Console et Bing Webmaster Tools. Le traitement est conforme à la <strong>loi marocaine n° 09-08</strong> relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel.</p>
+    <h2>15. Protection des données personnelles</h2>
+    <p>Tout traitement de données personnelles dans le cadre de la Plateforme est régi par la <strong>loi n° 09-08</strong> relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel, sous le contrôle de la <strong>Commission Nationale de Contrôle de la Protection des Données à Caractère Personnel (CNDP)</strong>.</p>
+    <p><strong>Déclaration :</strong> la déclaration du traitement auprès de la CNDP est <em>en cours de constitution</em>. L'Exploitant s'engage à finaliser cette déclaration avant toute extension du traitement.</p>
+    <p><strong>Données collectées :</strong> position géographique (sous réserve du consentement), adresse IP, type de navigateur, pages visitées, date et heure des visites, mots-clés de recherche.</p>
+    <p><strong>Géolocalisation — consentement exprès :</strong> la position géographique n'est collectée qu'après l'action affirmative de l'utilisateur sur le bouton « سمح بالموقع / Autoriser la localisation », constituant un consentement exprès et préalable conforme à l'article 4 de la loi 09-08. La position est utilisée <strong>exclusivement</strong> pour identifier les Artisans les plus proches et <strong>n'est pas conservée sur les serveurs de l'Exploitant</strong> ; elle reste cantonnée à la session du navigateur. L'utilisateur peut retirer son consentement à tout moment via les paramètres de son navigateur.</p>
+    <p><strong>Sous-traitants situés hors du Maroc :</strong> certaines données techniques (statistiques d'usage, enregistrements de session anonymisés) sont transmises aux sous-traitants suivants :</p>
+    <ul>
+      <li><strong>Google LLC</strong> (Google Analytics) — États-Unis.</li>
+      <li><strong>Microsoft Corporation</strong> (Microsoft Clarity) — États-Unis.</li>
+    </ul>
+    <p>Ces transferts sont opérés sur la base du consentement préalable de l'utilisateur, conformément aux articles 43 et 44 de la loi 09-08. L'utilisateur dispose en permanence des droits d'accès, de rectification, d'opposition et d'effacement, exerçables auprès de <a href="mailto:support@jak.ma">support@jak.ma</a>. Il peut également saisir la CNDP (<a href="https://www.cndp.ma" target="_blank" rel="noopener">www.cndp.ma</a>).</p>
 
     <h2>16. Suspension et résiliation</h2>
-    <p>jak.ma peut suspendre ou résilier votre compte, retirer des annonces ou restreindre certaines fonctionnalités, à sa seule discrétion, notamment en cas de :</p>
+    <p>L'Exploitant peut suspendre ou résilier un compte, retirer des annonces ou restreindre certaines fonctionnalités, notamment en cas de :</p>
     <ul>
-      <li>Manquement aux présentes CGU.</li>
+      <li>Manquement aux présentes.</li>
       <li>Pratiques avérées de « shnaq », faux avis ou fraude.</li>
       <li>Plaintes répétées d'autres utilisateurs.</li>
       <li>Obligation légale ou décision de justice.</li>
     </ul>
-    <p>Vous pouvez clôturer votre compte à tout moment via <a href="mailto:support@jak.ma">support@jak.ma</a>. La clôture n'efface pas les enregistrements que jak.ma est tenue de conserver par la loi.</p>
+    <p>L'utilisateur peut clôturer son compte à tout moment via <a href="mailto:support@jak.ma">support@jak.ma</a>. La clôture n'efface pas les enregistrements que la loi impose à l'Exploitant de conserver.</p>
 
-    <h2>17. Modification des CGU</h2>
-    <p>jak.ma peut mettre à jour les présentes CGU. Toute modification substantielle sera annoncée sur la Plateforme et/ou par courriel au moins <strong>14 jours</strong> avant son entrée en vigueur. La poursuite de l'utilisation après cette date vaut acceptation.</p>
+    <h2>17. Modification des conditions</h2>
+    <p>L'Exploitant peut mettre à jour les présentes. Toute modification substantielle est annoncée sur la Plateforme et/ou par courriel au moins <strong>quatorze (14) jours</strong> avant son entrée en vigueur. La poursuite de l'utilisation après cette date vaut acceptation.</p>
 
     <h2>18. Droit applicable et juridiction</h2>
-    <p>Les présentes CGU sont soumises au droit du <strong>Royaume du Maroc</strong>. Tout litige relatif aux CGU ou à la Plateforme relève de la compétence exclusive des juridictions compétentes de <strong>Casablanca</strong>, sauf disposition d'ordre public attribuant compétence à une autre juridiction (notamment en matière de consommation).</p>
+    <p>Les présentes sont régies par le droit marocain. Les tribunaux de <strong>Casablanca</strong> sont seuls compétents pour connaître de tout litige relatif aux présentes ou à la Plateforme.</p>
+    <div class="consumer">
+      <strong>Protection du consommateur :</strong> la clause d'attribution exclusive ci-dessus n'est pas opposable à l'utilisateur agissant en qualité de consommateur non-professionnel ; celui-ci peut agir devant le tribunal de son <strong>domicile</strong>, conformément aux règles générales de compétence et à la loi 31-08.
+    </div>
 
-    <h2>19. Dispositions générales</h2>
+    <h2>19. Force majeure (articles 268 et 269 du DOC)</h2>
+    <p>L'Exploitant n'est pas tenu responsable de l'inexécution d'une obligation lorsque celle-ci résulte d'un cas de force majeure ou d'un événement fortuit, incluant notamment : interruption d'internet ou d'hébergement, incendie, inondation, pandémie, conflit armé, décision d'autorité publique ou toute autre cause hors de son contrôle. Les obligations sont suspendues pendant la durée de l'événement, sans indemnisation.</p>
+
+    <h2>20. Dispositions générales</h2>
     <ul>
-      <li>Si une stipulation des CGU est jugée inapplicable, les autres stipulations demeurent en vigueur.</li>
-      <li>L'absence d'exercice d'un droit par jak.ma ne saurait valoir renonciation à ce droit.</li>
-      <li>Vous ne pouvez céder vos droits sans accord écrit préalable de jak.ma. jak.ma pourra céder les CGU en cas de fusion, acquisition ou cession d'actifs.</li>
-      <li>Les CGU, ensemble avec la Politique de confidentialité, constituent l'accord intégral entre vous et jak.ma.</li>
+      <li>L'inapplicabilité d'une clause n'affecte pas la validité des autres.</li>
+      <li>L'absence d'exercice d'un droit ne vaut pas renonciation.</li>
+      <li>L'utilisateur ne peut céder ses droits sans accord écrit préalable de l'Exploitant.</li>
+      <li>Les présentes, avec la Politique de confidentialité, forment l'intégralité de l'accord entre les parties.</li>
     </ul>
 
-    <h2>20. Contact</h2>
-    <p>Questions, réclamations, demandes de retrait ou notifications légales :</p>
+    <h2>21. Contact</h2>
     <ul>
       <li><strong>Email :</strong> <a href="mailto:support@jak.ma">support@jak.ma</a></li>
-      <li><strong>Exploitant :</strong> Sami El Akkad, Maroc</li>
+      <li><strong>Exploitant :</strong> personne physique de droit marocain.</li>
     </ul>
 
     <div class="disclaimer">
-      Ce document est un modèle préparé pour jak.ma et doit être revu par un avocat marocain qualifié avant publication officielle. Il ne constitue pas un conseil juridique.
+      Ce document est un modèle préparé pour jak.ma et doit être revu par un avocat marocain qualifié avant toute publication contractuelle officielle. Il ne constitue pas un conseil juridique.
     </div>
   </div>
 
-  <!-- ============ ENGLISH ============ -->
+  <!-- ============================================================
+       ENGLISH — informative translation only
+       ============================================================ -->
   <div class="lang-block" id="lang-en" dir="ltr">
     <h1>jak.ma — Terms of Use</h1>
     <p class="updated">Last updated: 26 May 2026</p>
 
-    <p>Welcome to <strong>jak.ma</strong>. These Terms of Use ("Terms") govern your access to and use of the jak.ma website, mobile interfaces, and any related services (collectively, the "Platform"). By creating an account, listing a service, or booking a service through jak.ma, you agree to these Terms. If you do not agree, do not use the Platform.</p>
+    <div class="auth-notice">
+      <strong>Reference text:</strong> the <strong>Modern Standard Arabic</strong> and <strong>French</strong> versions are the legally authoritative texts. This English version is an informative translation; in case of divergence, the Arabic and French versions prevail.
+    </div>
 
-    <h2>1. What jak.ma is</h2>
-    <p>jak.ma is a <strong>zero-commission marketplace</strong> that connects clients in Morocco with independent home-service workers ("Artisans") — plumbers, electricians, painters, cleaners, movers, and similar trades. jak.ma is <strong>not</strong> a party to any service agreement between a client and an Artisan, does not employ Artisans, and does not perform the services itself. jak.ma facilitates discovery, contact, and (where enabled) booking.</p>
+    <h2>1. Parties and scope</h2>
+    <p>"jak.ma" is an electronic platform operated by a <strong>natural person under Moroccan law</strong> (the "Operator"). It connects client-users with independent home-service workers ("Artisans") in trades including plumbing, electrical, painting, carpentry, cleaning, moving, and related services.</p>
+    <p>The Operator is <strong>not a party</strong> to any service contract between a client and an Artisan, does not employ Artisans, and does not perform the services itself. The Platform's role is limited to technical facilitation.</p>
+    <p>Legal contact: <a href="mailto:support@jak.ma">support@jak.ma</a>.</p>
 
     <h2>2. Eligibility</h2>
-    <p>You must be at least 18 years old and legally capable of entering into a contract under Moroccan law to use the Platform. Artisans must additionally have the legal right to perform their trade in Morocco and, where required by law, hold the relevant CNSS registration, auto-entrepreneur status, or professional licenses.</p>
+    <p>Users must be 18 or older and legally capable of entering into a contract under Moroccan law. Artisans must additionally have the legal right to perform their trade in Morocco (CNSS registration where required, auto-entrepreneur status under Law 114-13, or applicable professional licenses).</p>
 
     <h2>3. Accounts</h2>
     <ul>
-      <li>You agree to provide accurate, current information when creating your account and to keep it updated.</li>
-      <li>You are responsible for all activity under your account and for keeping your credentials confidential.</li>
-      <li>One person or business per account. Impersonation, fake identities, or duplicate accounts to manipulate ratings are prohibited.</li>
-      <li>jak.ma may suspend or terminate any account that violates these Terms, with or without notice.</li>
+      <li>Provide accurate, current information and keep credentials confidential.</li>
+      <li>The user is solely responsible for all activity on their account.</li>
+      <li>One account per person or entity. Impersonation or duplicate accounts to manipulate ratings are prohibited.</li>
+      <li>The Operator may suspend or terminate any account for violations, with or without notice.</li>
     </ul>
 
     <h2>4. Zero-commission model</h2>
-    <p>jak.ma does not take a commission on jobs booked through the Platform. Artisans keep 100% of what the client pays for the job. jak.ma may, in the future, offer <strong>optional paid features</strong> (e.g., featured listings, verification badges, lead packs). Any paid feature will be clearly priced before purchase and is separate from the price of the underlying service.</p>
+    <p>The Operator takes no commission on jobs booked through the Platform. Artisans keep 100% of what the client pays. Optional paid features (featured listings, verification badges, lead packs) may be introduced in the future at clearly disclosed prices.</p>
 
     <h2>5. Client obligations</h2>
     <ul>
-      <li>Describe the job honestly and provide accurate location, photos, and scope information.</li>
-      <li>Pay the Artisan the agreed price in cash or by the method you and the Artisan agree on, after the job is completed (or per any deposit terms you agree to off-Platform).</li>
-      <li>Treat Artisans respectfully. Harassment, discrimination, threats, or abusive language toward any user are grounds for immediate account termination.</li>
-      <li>Not use the Platform to obtain quotes you have no intention of fulfilling, to scrape contact data, or to solicit Artisans for unrelated commercial purposes.</li>
+      <li>Describe the job honestly; provide accurate location, photos, and scope.</li>
+      <li>Pay the Artisan the agreed price in cash or by any mutually accepted method after the job is completed (or per agreed deposit terms).</li>
+      <li>Treat Artisans with respect. Harassment, discrimination, threats, or abusive language toward any user are grounds for immediate termination.</li>
+      <li>Not use the Platform to obtain quotes without genuine intent, scrape contact data, or solicit for unrelated commercial purposes.</li>
     </ul>
 
     <h2>6. Artisan obligations</h2>
     <ul>
-      <li>Provide truthful information about your trade, experience, location, and pricing.</li>
-      <li>Hold any licenses, insurance, or registrations required by Moroccan law for your activity, and comply with all applicable health, safety, and tax obligations.</li>
-      <li>Quote prices that are fair and reflective of the actual scope of work. <strong>Deliberate overcharging, bait-and-switch quoting, or so-called "shnaq" pricing is prohibited and is grounds for permanent removal from the Platform.</strong></li>
-      <li>Honor accepted bookings, arrive within the agreed window, and communicate promptly if you must reschedule or cancel.</li>
-      <li>Perform work to a professional standard and remedy defects in workmanship within a reasonable time when a legitimate complaint is raised.</li>
-      <li>Issue receipts to clients on request and handle your own tax and social-security obligations. jak.ma does not withhold taxes on your behalf.</li>
+      <li>Provide truthful information about trade, experience, service area, and pricing.</li>
+      <li>Hold all licenses, insurance, and registrations required by Moroccan law, and comply with health, safety, and tax obligations.</li>
+      <li>Quote fair prices reflecting the actual scope of work. <strong>Deliberate overcharging ("shnaq"), bait-and-switch tactics, and deceptive practices are strictly prohibited</strong> and grounds for permanent removal.</li>
+      <li>Honor accepted bookings, arrive within the agreed window, and communicate promptly on changes.</li>
+      <li>Perform work to professional standards and remedy any legitimate defect within a reasonable time.</li>
+      <li>Issue receipts on request and handle personal tax and social-security obligations. The Operator does not withhold any tax.</li>
     </ul>
 
-    <h2>7. Ratings, reviews, and content</h2>
+    <h2>7. Ratings, user content — notice-and-takedown procedure</h2>
     <ul>
-      <li>Clients may rate and review Artisans after a job. Reviews must reflect a genuine experience.</li>
-      <li>Fake reviews, paid reviews, retaliation reviews, and review-trading are prohibited.</li>
-      <li>You retain ownership of content you submit (photos, descriptions, reviews) but you grant jak.ma a <strong>non-exclusive, royalty-free, worldwide license</strong> to host, display, reproduce, and use that content to operate, promote, and improve the Platform.</li>
-      <li>Do not post content that is unlawful, defamatory, obscene, infringing, or that contains personal data of third parties without consent.</li>
+      <li>Clients may rate Artisans after a job. Reviews must reflect a genuine experience.</li>
+      <li>Fake reviews, paid reviews, retaliatory reviews, and review-trading are prohibited.</li>
+      <li>You retain ownership of content you submit (photos, text, reviews) but grant the Operator a <strong>non-exclusive, royalty-free, worldwide license</strong> to host, display, and use that content to operate and promote the Platform.</li>
+      <li>Unlawful, defamatory, obscene, or privacy-violating content is prohibited.</li>
+      <li><strong>Notice-and-takedown:</strong> any affected party may notify the Operator at <a href="mailto:support@jak.ma">support@jak.ma</a> with the URL of the disputed content and the basis for the complaint. The Operator commits to review the notice within a maximum of <strong>seven (7) business days</strong> and inform the notifier of the decision. This procedure is the formal channel for exercising rights under Law 88-13 on press and publishing.</li>
     </ul>
 
     <h2>8. Bookings, cancellations, and disputes</h2>
     <ul>
-      <li>A booking is an agreement between the client and the Artisan, not with jak.ma.</li>
-      <li>Cancellation, refund, and rework terms are between the client and the Artisan. We encourage both parties to confirm these in writing via the Platform's chat before work begins.</li>
-      <li>jak.ma may, at its discretion, mediate disputes informally to keep the marketplace healthy, but jak.ma is <strong>not</strong> an arbitrator and does not guarantee any outcome. jak.ma may use dispute history when deciding whether to keep an account on the Platform.</li>
+      <li>A booking is a contract between the client and the Artisan; the Operator is not a party.</li>
+      <li>Cancellation, refund, and rework terms are between the parties; preferably confirmed in writing via Platform chat before work begins.</li>
+      <li>The Operator may, voluntarily, facilitate informal dispute resolution, without arbitrator status and without guarantee of outcome.</li>
     </ul>
 
+    <h2>8 bis. Consumer right of withdrawal (Law 31-08)</h2>
+    <p>In accordance with Articles 36 and 37 of Law No. 31-08 on consumer protection, a consumer entering into a distance contract has <strong>seven (7) days</strong> to exercise the right of withdrawal without justification and without penalty.</p>
+    <p>This right <strong>is extinguished as soon as the Artisan begins performance</strong> of the service with the consumer's express and prior consent. Withdrawal is exercised by notifying the Artisan directly (the Operator is not a party); the consumer may request the Operator's assistance.</p>
+
     <h2>9. Payments</h2>
-    <p>jak.ma currently does <strong>not</strong> process payments between clients and Artisans. Payment is made directly between the parties (cash, bank transfer, or other method they agree on). If, in the future, jak.ma introduces in-app payments, separate payment terms will apply and you will be asked to accept them before using that feature.</p>
+    <p>The Platform does not currently process payments between clients and Artisans. Payment is made directly between the parties (cash, bank transfer, or other agreed method). If in-app payments are introduced in the future, separate payment terms will apply.</p>
 
     <h2>10. Prohibited uses</h2>
     <ul>
-      <li>Use the Platform for any illegal purpose or in violation of Moroccan law.</li>
-      <li>Circumvent, disable, or interfere with security or rate-limiting features.</li>
-      <li>Scrape, harvest, or bulk-extract Platform content, user data, or contact information.</li>
-      <li>Reverse-engineer, decompile, or attempt to derive the source code of the Platform.</li>
-      <li>Use bots, scripts, or automated means to create accounts, post listings, post reviews, or place bookings.</li>
-      <li>Run competing marketplace operations using data obtained from jak.ma.</li>
+      <li>Use of the Platform for unlawful purposes or in violation of Moroccan law.</li>
+      <li>Circumvention or disabling of security or usage-limitation features.</li>
+      <li>Automated content or user-data extraction (scraping).</li>
+      <li>Reverse-engineering or attempting to recover source code.</li>
+      <li>Use of bots or scripts to create accounts, listings, reviews, or bookings.</li>
+      <li>Using jak.ma data to launch a competing platform.</li>
     </ul>
 
     <h2>11. Intellectual property</h2>
-    <p>The Platform — including its software, design, brand, logo "jak.ma," and content created by jak.ma — is owned by jak.ma and protected by intellectual-property laws. Nothing in these Terms transfers ownership to you. You may use the Platform only as expressly permitted here.</p>
+    <p>The Platform — software, design, the "jak.ma" mark, and content created by the Operator — is protected by Moroccan intellectual-property law including Law 17-97. Nothing in these Terms transfers ownership to the user.</p>
 
     <h2>12. Disclaimers</h2>
     <ul>
-      <li>The Platform is provided <strong>"as is"</strong> and <strong>"as available."</strong> jak.ma makes no warranty that the Platform will be uninterrupted, error-free, or secure.</li>
-      <li>jak.ma does not warrant the quality, safety, legality, or timeliness of services performed by Artisans, nor the accuracy of information provided by clients.</li>
-      <li>Listings, ratings, and Artisan-supplied information are provided by users; jak.ma performs only limited verification and does not guarantee identity, qualifications, or insurance status of any Artisan.</li>
-      <li>You use the Platform and engage with other users at your own risk.</li>
+      <li>The Platform is provided <strong>"as is"</strong> and <strong>"as available"</strong>, without guarantee of uninterrupted or error-free operation.</li>
+      <li>The Operator does not warrant the quality, safety, legality, or timeliness of services performed by Artisans.</li>
+      <li>Listings and reviews originate from users; the Operator performs only limited verification and does not guarantee an Artisan's identity, qualifications, or insurance status.</li>
     </ul>
 
     <h2>13. Limitation of liability</h2>
-    <p>To the maximum extent permitted by Moroccan law, jak.ma, its operator, and its affiliates are <strong>not liable</strong> for:</p>
+    <p>To the maximum extent permitted by Moroccan law, the Operator is not liable for:</p>
     <ul>
-      <li>Indirect, incidental, special, consequential, or punitive damages.</li>
+      <li>Indirect, incidental, or consequential damages.</li>
       <li>Loss of profit, data, goodwill, or business opportunity.</li>
-      <li>Property damage, personal injury, or financial loss caused by an Artisan, a client, or any third party.</li>
+      <li>Property damage, personal injury, or financial loss caused by an Artisan, a client, or a third party.</li>
     </ul>
-    <p>Where liability cannot be excluded by law, jak.ma's total aggregate liability to any user in any 12-month period is limited to the greater of (a) the amount that user has paid jak.ma for paid features during that period, or (b) <strong>500 MAD</strong>.</p>
+    <p>Where liability cannot be excluded by law, the Operator's total aggregate liability to any user over a 12-month period is limited to the greater of (a) amounts that user has paid the Operator during the period, or (b) <strong>MAD 500</strong>.</p>
+    <div class="consumer">
+      <strong>Consumer protection:</strong> the cap above is not enforceable against a user acting as a <strong>non-business consumer</strong>. The mandatory provisions of Law 31-08 remain fully applicable.
+    </div>
+
+    <h2>13 bis. Consumer rights (Law 31-08)</h2>
+    <p>For users acting as non-business consumers, the following rights are guaranteed by Law 31-08 and may not be waived:</p>
+    <ul>
+      <li>Right to accurate, clear, and prior information before any commitment.</li>
+      <li>Right of withdrawal within seven days (see §8 bis).</li>
+      <li>Right to submit any dispute to an accredited <strong>consumer mediator</strong> before going to court.</li>
+      <li>Right to sue in the court of the consumer's <strong>domicile</strong>, despite §18 jurisdiction.</li>
+      <li>Any clause creating a significant imbalance between the parties' rights and obligations is deemed an <strong>unfair clause</strong> and unenforceable against the consumer (Articles 15–18 of Law 31-08).</li>
+    </ul>
 
     <h2>14. Indemnification</h2>
-    <p>You agree to indemnify and hold harmless jak.ma, its operator, employees, and partners from any claim, loss, or expense (including reasonable legal fees) arising from your use of the Platform, your breach of these Terms, your content, or your interaction with another user.</p>
+    <p>The user agrees to indemnify the Operator from any claim, loss, or expense (including reasonable legal fees) arising from use of the Platform, breach of these Terms, user content, or interactions with other users.</p>
+    <div class="consumer">
+      <strong>Consumer protection:</strong> the indemnification clause above is enforceable against a non-business consumer only within the limits allowed by Moroccan law.
+    </div>
 
-    <h2>15. Privacy</h2>
-    <p>Your use of the Platform is also governed by the <strong>jak.ma Privacy Policy</strong>, which describes how we collect, use, and share personal data, including data collected via Google Analytics, Microsoft Clarity, Google Search Console, and Bing Webmaster Tools. Personal-data processing complies with <strong>Moroccan Law No. 09-08</strong> on the protection of individuals with regard to the processing of personal data.</p>
+    <h2>15. Personal-data protection</h2>
+    <p>All personal-data processing on the Platform is governed by <strong>Law No. 09-08</strong> on the protection of individuals with regard to the processing of personal data, under the supervision of the <strong>National Commission for the Control of Personal Data Protection (CNDP)</strong>.</p>
+    <p><strong>Declaration:</strong> the CNDP declaration is <em>currently being prepared</em>. The Operator commits to completing this filing before any expansion of processing.</p>
+    <p><strong>Data collected:</strong> geolocation (subject to consent), IP address, browser type, pages visited, date and time of visits, search keywords.</p>
+    <p><strong>Geolocation — express consent:</strong> geolocation is collected only after the user's affirmative click on the "Allow location" button, constituting express and prior consent under Article 4 of Law 09-08. Location data is used <strong>exclusively</strong> to identify the nearest Artisans and is <strong>not stored on the Operator's servers</strong>; it remains within the browser session. Consent may be withdrawn at any time via browser settings.</p>
+    <p><strong>Sub-processors located outside Morocco:</strong> certain technical data (usage statistics, anonymized session recordings) is transmitted to:</p>
+    <ul>
+      <li><strong>Google LLC</strong> (Google Analytics) — United States.</li>
+      <li><strong>Microsoft Corporation</strong> (Microsoft Clarity) — United States.</li>
+    </ul>
+    <p>These transfers operate on the basis of the user's prior consent, pursuant to Articles 43 and 44 of Law 09-08. The user has at all times the rights of access, rectification, objection, and deletion, exercisable at <a href="mailto:support@jak.ma">support@jak.ma</a>. The user may also file a complaint with the CNDP (<a href="https://www.cndp.ma" target="_blank" rel="noopener">www.cndp.ma</a>).</p>
 
     <h2>16. Suspension and termination</h2>
     <ul>
-      <li>Violations of these Terms.</li>
+      <li>Breach of these Terms.</li>
       <li>Confirmed "shnaq" pricing, fake reviews, or fraud.</li>
       <li>Repeated complaints from other users.</li>
-      <li>A legal requirement or court order.</li>
+      <li>Legal obligation or court order.</li>
     </ul>
-    <p>You may close your account at any time by contacting <a href="mailto:support@jak.ma">support@jak.ma</a>. Closing your account does not erase past transaction records that jak.ma is required to keep.</p>
+    <p>The user may close their account at any time via <a href="mailto:support@jak.ma">support@jak.ma</a>. Closure does not erase records the Operator is legally required to retain.</p>
 
-    <h2>17. Changes to these Terms</h2>
-    <p>jak.ma may update these Terms from time to time. Material changes will be announced on the Platform and/or by email at least <strong>14 days</strong> before they take effect. Continued use after the effective date means you accept the updated Terms.</p>
+    <h2>17. Changes to the Terms</h2>
+    <p>The Operator may update these Terms. Material changes will be announced on the Platform and/or by email at least <strong>fourteen (14) days</strong> before they take effect. Continued use after the effective date constitutes acceptance.</p>
 
     <h2>18. Governing law and jurisdiction</h2>
-    <p>These Terms are governed by the laws of the <strong>Kingdom of Morocco</strong>. Any dispute arising out of or relating to these Terms or the Platform will be submitted to the exclusive jurisdiction of the competent courts of <strong>Casablanca</strong>, unless mandatory consumer-protection law assigns jurisdiction elsewhere.</p>
+    <p>These Terms are governed by Moroccan law. The courts of <strong>Casablanca</strong> have exclusive jurisdiction over any dispute relating to these Terms or the Platform.</p>
+    <div class="consumer">
+      <strong>Consumer protection:</strong> the exclusive jurisdiction clause above is not enforceable against a user acting as a non-business consumer, who may sue in the court of their own <strong>domicile</strong> pursuant to Law 31-08 and the general rules of jurisdiction.
+    </div>
 
-    <h2>19. Miscellaneous</h2>
+    <h2>19. Force majeure (Articles 268 and 269 of the DOC)</h2>
+    <p>The Operator is not liable for any failure to perform when caused by force majeure or unforeseen event, including but not limited to: internet or hosting outages, fire, flood, pandemic, armed conflict, government action, or any cause beyond the Operator's reasonable control. Obligations are suspended for the duration of the event, without compensation.</p>
+
+    <h2>20. Miscellaneous</h2>
     <ul>
-      <li>If any provision of these Terms is held unenforceable, the remaining provisions remain in effect.</li>
-      <li>jak.ma's failure to enforce any right is not a waiver of that right.</li>
-      <li>You may not assign or transfer your rights under these Terms without jak.ma's prior written consent. jak.ma may assign these Terms in connection with a merger, acquisition, or sale of assets.</li>
-      <li>These Terms, together with the Privacy Policy and any feature-specific terms, are the entire agreement between you and jak.ma regarding the Platform.</li>
+      <li>If any provision is unenforceable, the remainder remains in effect.</li>
+      <li>Failure to enforce any right is not a waiver.</li>
+      <li>The user may not assign their rights without the Operator's prior written consent.</li>
+      <li>These Terms, with the Privacy Policy, form the entire agreement between the parties.</li>
     </ul>
 
-    <h2>20. Contact</h2>
+    <h2>21. Contact</h2>
     <ul>
       <li><strong>Email:</strong> <a href="mailto:support@jak.ma">support@jak.ma</a></li>
-      <li><strong>Operator:</strong> Sami El Akkad, Morocco</li>
+      <li><strong>Operator:</strong> natural person under Moroccan law.</li>
     </ul>
 
     <div class="disclaimer">
-      This document is a template prepared for jak.ma and should be reviewed by a qualified Moroccan lawyer before publication. It does not constitute legal advice.
+      This document is a template prepared for jak.ma and should be reviewed by a qualified Moroccan lawyer before contractual publication. It does not constitute legal advice.
     </div>
   </div>
 
@@ -502,8 +648,10 @@
 </div>
 
 <script>
-  const tabs = document.querySelectorAll('.lang-tab');
+  const tabs = document.querySelectorAll('.lang-tab[data-lang]');
   const blocks = document.querySelectorAll('.lang-block');
+  const darijaToggle = document.getElementById('darijaToggle');
+  const darijaBox = document.getElementById('darijaBox-ar');
   const body = document.body;
   function setLang(lang){
     tabs.forEach(t => t.classList.toggle('active', t.dataset.lang === lang));
@@ -517,9 +665,16 @@
       document.documentElement.dir = 'ltr';
       body.classList.add('ltr');
     }
+    if(darijaToggle) darijaToggle.style.display = (lang === 'ar') ? 'inline-block' : 'none';
     try { history.replaceState(null,'','#'+lang); } catch(e){}
   }
   tabs.forEach(t => t.addEventListener('click', () => setLang(t.dataset.lang)));
+  if(darijaToggle){
+    darijaToggle.addEventListener('click', () => {
+      const open = darijaBox.classList.toggle('open');
+      darijaToggle.classList.toggle('active', open);
+    });
+  }
   const initial = (location.hash || '').replace('#','');
   if(['ar','fr','en'].includes(initial)) setLang(initial);
 </script>
