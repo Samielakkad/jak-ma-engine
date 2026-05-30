@@ -1,5 +1,10 @@
 # AI + LLM Agents · jak-ma-engine
 
+[![Node](https://img.shields.io/badge/node-%E2%89%A518-339933?logo=node.js&logoColor=white)](package.json)
+[![tests](https://img.shields.io/badge/tests-node%3A%3Atest-0A9EDC)](tests/)
+[![License](https://img.shields.io/badge/license-source--available-lightgrey)](LICENSE)
+[![Live](https://img.shields.io/badge/live-jak.ma-2E86AB)](https://jak.ma)
+
 Public engineering mirror of [**jak.ma**](https://jak.ma) — the production Moroccan Darija home-services marketplace.
 
 This repo contains the code-only architecture: server, libraries, agent + classifier stack, tests, and the full [`ARCHITECTURE.md`](./ARCHITECTURE.md) document. The production worker dataset (real names + phone numbers of ~2,000 Moroccan tradespeople) is intentionally **not** included for privacy reasons — it lives only in the private production repo and MongoDB.
@@ -8,6 +13,21 @@ This repo contains the code-only architecture: server, libraries, agent + classi
 > **Architecture doc**: [ARCHITECTURE.md](./ARCHITECTURE.md)
 > **Live classifier debug**: [`/api/ai/classify?q=bghit+plombier+f+tanja`](https://www.jak.ma/api/ai/classify?q=bghit+plombier+f+tanja)
 > **Open-source Darija LoRA**: [huggingface.co/samielakkad1/jakma-darija-A-adapter](https://huggingface.co/samielakkad1/jakma-darija-A-adapter)
+
+---
+
+## Run & test
+
+```bash
+npm ci
+npm test                      # full suite (node --test)
+npm run test:price-fairness   # self-contained unit tests, no DB/keys needed
+docker build -t jakma . && docker run -p 3000:3000 jakma   # reproducible container
+```
+
+The deterministic tests (price-fairness, classifier) run with **zero external
+dependencies**; the integration tests expect a MongoDB connection and provider
+keys via `.env`.
 
 ---
 
