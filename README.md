@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/Samielakkad/AI-LLM-Agents-JakMa-Engine/actions/workflows/ci.yml/badge.svg)](https://github.com/Samielakkad/AI-LLM-Agents-JakMa-Engine/actions/workflows/ci.yml)
 [![Node](https://img.shields.io/badge/node-%E2%89%A518-339933?logo=node.js&logoColor=white)](package.json)
-[![License](https://img.shields.io/badge/license-source--available-lightgrey)](LICENSE)
+[![License](https://img.shields.io/badge/license-All_Rights_Reserved-red)](LICENSE)
 [![Live](https://img.shields.io/badge/live-jak.ma-2E86AB)](https://jak.ma)
 
 Public engineering mirror of [**jak.ma**](https://jak.ma) — the production Moroccan Darija home-services marketplace.
@@ -140,3 +140,8 @@ MIT — code only. The trained LoRA on HuggingFace is Apache 2.0.
 ## Author
 
 [Sami EL AKKAD](https://linkedin.com/in/samielakkad) — Tsinghua SIGS AI Master's · ex Baidu ERNIE Mentor (4.5) · founder of jak.ma.
+
+
+---
+
+**License — All rights reserved.** This repository is shared for review only. Please **contact me before using any part of it** for any purpose. See [LICENSE](LICENSE).
