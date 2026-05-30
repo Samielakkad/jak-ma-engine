@@ -56,11 +56,11 @@ node --test tests/agent-loop.test.js        # 21 tests — agent stack
 
 ## Companion repos (Sami's other public artifacts)
 
-- [**jak-ma-case-study**](https://github.com/Samielakkad/jak-ma-case-study) — production case study, hero metrics, 5 architectural decisions, 5 things that broke
-- [**jak-ma-eval-suite**](https://github.com/Samielakkad/jak-ma-eval-suite) — evaluation methodology + 5-dim rubric
-- [**darija-nlp-resources**](https://github.com/Samielakkad/darija-nlp-resources) — curated reading list of Moroccan Arabic NLP corpora, papers, and tools
-- [**pm-frameworks-darija**](https://github.com/Samielakkad/pm-frameworks-darija) — reusable PM frameworks for low-resource LLM products
-- [**ernie-evaluation-notes**](https://github.com/Samielakkad/ernie-evaluation-notes) — methodology from the Baidu ERNIE Mentor Program
+- [**jak-ma-case-study**](https://github.com/Samielakkad/AI-Product-JakMa-Case-Study) — production case study, hero metrics, 5 architectural decisions, 5 things that broke
+- [**jak-ma-eval-suite**](https://github.com/Samielakkad/AI-LLM-Evaluation-JakMa) — evaluation methodology + 5-dim rubric
+- [**darija-nlp-resources**](https://github.com/Samielakkad/AI-NLP-Darija-Resources) — curated reading list of Moroccan Arabic NLP corpora, papers, and tools
+- [**pm-frameworks-darija**](https://github.com/Samielakkad/AI-Product-Management-Frameworks) — reusable PM frameworks for low-resource LLM products
+- [**ernie-evaluation-notes**](https://github.com/Samielakkad/AI-LLM-Evaluation-Baidu-ERNIE) — methodology from the Baidu ERNIE Mentor Program
 
 ---
 
@@ -78,7 +78,7 @@ node --test tests/agent-loop.test.js        # 21 tests — agent stack
 ## Local development
 
 ```bash
-git clone https://github.com/Samielakkad/jak-ma-engine
+git clone https://github.com/Samielakkad/AI-LLM-Agents-JakMa-Engine
 cd jak-ma-engine
 npm install
 
