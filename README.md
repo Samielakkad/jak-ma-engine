@@ -1,7 +1,7 @@
 # AI + LLM Agents · jak-ma-engine
 
+[![CI](https://github.com/Samielakkad/AI-LLM-Agents-JakMa-Engine/actions/workflows/ci.yml/badge.svg)](https://github.com/Samielakkad/AI-LLM-Agents-JakMa-Engine/actions/workflows/ci.yml)
 [![Node](https://img.shields.io/badge/node-%E2%89%A518-339933?logo=node.js&logoColor=white)](package.json)
-[![tests](https://img.shields.io/badge/tests-node%3A%3Atest-0A9EDC)](tests/)
 [![License](https://img.shields.io/badge/license-source--available-lightgrey)](LICENSE)
 [![Live](https://img.shields.io/badge/live-jak.ma-2E86AB)](https://jak.ma)
 
