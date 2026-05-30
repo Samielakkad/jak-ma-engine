@@ -1,4 +1,4 @@
-# jak-ma-engine
+# AI + LLM Agents · jak-ma-engine
 
 Public engineering mirror of [**jak.ma**](https://jak.ma) — the production Moroccan Darija home-services marketplace.
 
